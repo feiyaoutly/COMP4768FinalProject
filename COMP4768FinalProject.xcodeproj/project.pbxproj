@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		717587A421AB8B5C00550B54 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 717587A321AB8B5C00550B54 /* ViewController.m */; };
 		B06AA9EA21AB7EB2005626BD /* MSCHNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B06AA9E921AB7EB2005626BD /* MSCHNetworkManager.m */; };
 		B0CB76EB2191D870007B5D49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CB76EA2191D870007B5D49 /* AppDelegate.m */; };
-		B0CB76EE2191D870007B5D49 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CB76ED2191D870007B5D49 /* ViewController.m */; };
 		B0CB76F12191D870007B5D49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0CB76EF2191D870007B5D49 /* Main.storyboard */; };
 		B0CB76F32191D871007B5D49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0CB76F22191D871007B5D49 /* Assets.xcassets */; };
 		B0CB76F62191D871007B5D49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0CB76F42191D871007B5D49 /* LaunchScreen.storyboard */; };
@@ -17,13 +17,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		717587A221AB8B5C00550B54 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		717587A321AB8B5C00550B54 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B06AA9E821AB7EB2005626BD /* MSCHNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCHNetworkManager.h; sourceTree = "<group>"; };
 		B06AA9E921AB7EB2005626BD /* MSCHNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSCHNetworkManager.m; sourceTree = "<group>"; };
 		B0CB76E62191D870007B5D49 /* COMP4768FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COMP4768FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CB76E92191D870007B5D49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B0CB76EA2191D870007B5D49 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B0CB76EC2191D870007B5D49 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B0CB76ED2191D870007B5D49 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B0CB76F02191D870007B5D49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0CB76F22191D871007B5D49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0CB76F52191D871007B5D49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,9 +63,9 @@
 			children = (
 				B0CB76E92191D870007B5D49 /* AppDelegate.h */,
 				B0CB76EA2191D870007B5D49 /* AppDelegate.m */,
-				B0CB76EC2191D870007B5D49 /* ViewController.h */,
-				B0CB76ED2191D870007B5D49 /* ViewController.m */,
 				B0CB76EF2191D870007B5D49 /* Main.storyboard */,
+				717587A221AB8B5C00550B54 /* ViewController.h */,
+				717587A321AB8B5C00550B54 /* ViewController.m */,
 				B0CB76F22191D871007B5D49 /* Assets.xcassets */,
 				B0CB76F42191D871007B5D49 /* LaunchScreen.storyboard */,
 				B0CB76F72191D871007B5D49 /* Info.plist */,
@@ -146,9 +146,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0CB76EE2191D870007B5D49 /* ViewController.m in Sources */,
 				B0CB76F92191D871007B5D49 /* main.m in Sources */,
 				B0CB76EB2191D870007B5D49 /* AppDelegate.m in Sources */,
+				717587A421AB8B5C00550B54 /* ViewController.m in Sources */,
 				B06AA9EA21AB7EB2005626BD /* MSCHNetworkManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
