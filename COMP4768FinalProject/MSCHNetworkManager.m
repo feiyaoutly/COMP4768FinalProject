@@ -9,6 +9,7 @@
 #import "MSCHNetworkManager.h"
 @interface MSCHNetworkManager()
 @property (strong,nonatomic) NSMutableArray *subjects;
+@property (strong,nonatomic) NSMutableDictionary *courses;
 
 @end
 
@@ -20,9 +21,53 @@
     NSArray *subjectsarr = [subjectsStr componentsSeparatedByString:@","];
     subjectsarr = [subjectsarr filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]];
     self.subjects = [NSMutableArray arrayWithArray:subjectsarr];
-    NSLog(@"%@%@",@"subjects fteched from server ",subjectsStr);
-    NSLog(@"%@%@%@%@",@"subjects are:",[subjectsarr objectAtIndex:0],[subjectsarr objectAtIndex:1],[subjectsarr objectAtIndex:2]);
-    NSLog(@"%@%@%@%@",@"subjects are:",[self.subjects objectAtIndex:0],[self.subjects objectAtIndex:1],[self.subjects objectAtIndex:2]);
+    self.courses = [[NSMutableDictionary alloc]init];
+    
+    for(int i=0;i<[subjectsarr count];i++){
+        NSURL *coursesUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@%@",@"https://storage.googleapis.com/muncomp4768finalproject/",[self.subjects objectAtIndex:i],@".txt"]];
+        NSString *coursesStr = [NSString stringWithContentsOfURL:coursesUrl encoding:NSASCIIStringEncoding error:&error];
+        NSArray *coursesarr = [coursesStr componentsSeparatedByString:@"\r\n"];
+        coursesarr = [coursesarr filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]];
+        [self.courses setValue:[[NSMutableArray alloc]init] forKey:[subjectsarr objectAtIndex:i]];
+        for(int j=0;j<[coursesarr count];j++){
+            NSString *courseStr = [coursesarr objectAtIndex:j];
+            NSArray *courseDescriptionArr = [courseStr componentsSeparatedByString:@","];
+            NSLog(@"%@%@",@"course number:",[courseDescriptionArr objectAtIndex:0]);
+            NSMutableDictionary *course = [[NSMutableDictionary alloc]init];
+            [course setValue:[self.subjects objectAtIndex:i] forKey:@"subject"];
+            [course setValue:[courseDescriptionArr objectAtIndex:0] forKey:@"number"];
+            [course setValue:[courseDescriptionArr objectAtIndex:1] forKey:@"section"];
+            [course setValue:[courseDescriptionArr objectAtIndex:2] forKey:@"campus"];
+            [course setValue:[courseDescriptionArr objectAtIndex:3] forKey:@"title"];
+            [course setValue:[courseDescriptionArr objectAtIndex:4] forKey:@"instructor"];
+            
+            NSLog(@"%@%i",@"number of lectures:",[[courseDescriptionArr objectAtIndex:5] intValue]);
+            NSMutableArray *lectures = [[NSMutableArray alloc]init];
+            for(int k=0;k<[[courseDescriptionArr objectAtIndex:5] intValue];k++){
+                NSMutableDictionary *lecture = [[NSMutableDictionary alloc]init];
+                [lecture setValue:[courseDescriptionArr objectAtIndex:6+k*3] forKey:@"lectureDay"];
+                [lecture setValue:[courseDescriptionArr objectAtIndex:7+k*3] forKey:@"lectureTime"];
+                [lecture setValue:[courseDescriptionArr objectAtIndex:8+k*3] forKey:@"lectureLocation"];
+                [lectures addObject:lecture];
+            }
+            [course setValue:lectures forKey:@"lectures"];
+            [course setValue:[courseDescriptionArr objectAtIndex:[[courseDescriptionArr objectAtIndex:5] intValue]*3+6] forKey:@"hasLab"];
+            [course setValue:[courseDescriptionArr objectAtIndex:[[courseDescriptionArr objectAtIndex:5] intValue]*3+7] forKey:@"labDay"];
+            [course setValue:[courseDescriptionArr objectAtIndex:[[courseDescriptionArr objectAtIndex:5] intValue]*3+8] forKey:@"labTime"];
+            [course setValue:[courseDescriptionArr objectAtIndex:[[courseDescriptionArr objectAtIndex:5] intValue]*3+9] forKey:@"labLocation"];
+            [course setValue:[courseDescriptionArr objectAtIndex:[[courseDescriptionArr objectAtIndex:5] intValue]*3+10] forKey:@"hasTutorial"];
+            [course setValue:[courseDescriptionArr objectAtIndex:[[courseDescriptionArr objectAtIndex:5] intValue]*3+11] forKey:@"tutorialDay"];
+            [course setValue:[courseDescriptionArr objectAtIndex:[[courseDescriptionArr objectAtIndex:5] intValue]*3+12] forKey:@"tutorialTime"];
+            [course setValue:[courseDescriptionArr objectAtIndex:[[courseDescriptionArr objectAtIndex:5] intValue]*3+6] forKey:@"tutorialLocation"];
+            
+            [[self.courses valueForKey:[subjectsarr objectAtIndex:i]]addObject:course];
+            
+            
+            
+            
+        }
+    }
+    
 }
 
 -(NSArray *) getAllSubjects{
@@ -40,7 +85,7 @@
 
 -(NSArray *)getALLCourseOfSubject:(NSString *)subject{
     NSLog(@"%@%@",@"get called to getAllCoursesOfSubject:",subject);
-    NSArray *courses = [[NSMutableArray alloc]init];
+    NSArray *courses = [[NSMutableArray alloc]initWithArray:[self.courses valueForKey:subject]];
     return  courses;
 }
 

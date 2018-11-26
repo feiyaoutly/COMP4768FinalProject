@@ -19,6 +19,8 @@
     // Do any additional setup after loading the view.
     MSCHNetworkManager *nm = [[MSCHNetworkManager alloc]init];
     [nm fetchDataFromServer];
+    NSArray *courses=[nm getALLCourseOfSubject:@"MATH"];
+    NSLog(@"%@%@",@"from main viewcontroller get:",[[courses objectAtIndex:3]valueForKey:@"hasLab"]);
 }
 
 /*
