@@ -10,4 +10,11 @@
 
 @implementation MSCHNetworkManager
 
+-(NSMutableArray *) getAllSubjects{
+    NSLog(@"get called to get all subjects");
+    NSMutableArray *subjects = [[NSMutableArray alloc]init];
+    return  subjects;
+}
+
+
 @end

@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MSCHNetworkManager : NSObject
 
+-(NSMutableArray *) getAllSubjects;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -21,6 +21,8 @@
     //wdwd
     //test
     //haha
+    MSCHNetworkManager *nm= [[MSCHNetworkManager alloc]init];
+    [nm getAllSubjects];
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSCHNetworkManager.h"
 
 @interface ViewController : UIViewController
 
