@@ -9,6 +9,14 @@
 #import "MSCHNetworkManager.h"
 
 @implementation MSCHNetworkManager
+-(void)fetchDataFromServer{
+    NSURL *subjectsUrl = [NSURL URLWithString:@"https://storage.googleapis.com/muncomp4768finalproject/subjects.txt"];
+    NSError* error;
+    NSString *subjectsStr = [NSString stringWithContentsOfURL:subjectsUrl encoding:NSASCIIStringEncoding error:&error];
+    NSArray *subjects = [subjectsStr componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    subjects = [subjects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]];
+    NSLog(@"%@%@",@"subjects fteched from server ",subjectsStr);
+}
 
 -(NSMutableArray *) getAllSubjects{
     NSLog(@"get called to getAllSubjects");
