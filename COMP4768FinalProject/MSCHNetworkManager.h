@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MSCHNetworkManager : NSObject
 
 -(NSMutableArray *) getAllSubjects;
+-(NSMutableArray *) getALLBuildingCode;
+-(NSMutableArray *) getALLCourseOfSubject:(NSString *)subject;
 
 @end
 

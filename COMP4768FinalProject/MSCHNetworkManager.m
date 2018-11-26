@@ -11,9 +11,22 @@
 @implementation MSCHNetworkManager
 
 -(NSMutableArray *) getAllSubjects{
-    NSLog(@"get called to get all subjects");
+    NSLog(@"get called to getAllSubjects");
     NSMutableArray *subjects = [[NSMutableArray alloc]init];
     return  subjects;
+}
+
+- (NSMutableArray *)getALLBuildingCode{
+    NSLog(@"get called to getAllBuildingCode");
+    NSMutableArray *bc = [[NSMutableArray alloc]init];
+    return  bc;
+}
+
+
+-(NSMutableArray *)getALLCourseOfSubject:(NSString *)subject{
+    NSLog(@"%@%@",@"get called to getAllCoursesOfSubject:",subject);
+    NSMutableArray *courses = [[NSMutableArray alloc]init];
+    return  courses;
 }
 
 

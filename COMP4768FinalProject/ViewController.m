@@ -17,12 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    //wdwd
-    //wdwd
-    //test
-    //haha
+    
     MSCHNetworkManager *nm= [[MSCHNetworkManager alloc]init];
     [nm getAllSubjects];
+    [nm getALLCourseOfSubject:@"MATH"];
 }
 
 
