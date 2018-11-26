@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MSCHCourse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MSCHNetworkManager : NSObject
 
 -(void) fetchDataFromServer;
--(NSMutableArray *) getAllSubjects;
--(NSMutableArray *) getALLBuildingCode;
--(NSMutableArray *) getALLCourseOfSubject:(NSString *)subject;
+-(NSArray *) getAllSubjects;
+-(NSArray *) getALLBuildingCode;
+-(NSArray *) getALLCourseOfSubject:(NSString *)subject;
 
 @end
 

@@ -7,33 +7,40 @@
 //
 
 #import "MSCHNetworkManager.h"
+@interface MSCHNetworkManager()
+@property (strong,nonatomic) NSMutableArray *subjects;
+
+@end
 
 @implementation MSCHNetworkManager
 -(void)fetchDataFromServer{
     NSURL *subjectsUrl = [NSURL URLWithString:@"https://storage.googleapis.com/muncomp4768finalproject/subjects.txt"];
     NSError* error;
     NSString *subjectsStr = [NSString stringWithContentsOfURL:subjectsUrl encoding:NSASCIIStringEncoding error:&error];
-    NSArray *subjects = [subjectsStr componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    subjects = [subjects filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]];
+    NSArray *subjectsarr = [subjectsStr componentsSeparatedByString:@","];
+    subjectsarr = [subjectsarr filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]];
+    self.subjects = [NSMutableArray arrayWithArray:subjectsarr];
     NSLog(@"%@%@",@"subjects fteched from server ",subjectsStr);
+    NSLog(@"%@%@%@%@",@"subjects are:",[subjectsarr objectAtIndex:0],[subjectsarr objectAtIndex:1],[subjectsarr objectAtIndex:2]);
+    NSLog(@"%@%@%@%@",@"subjects are:",[self.subjects objectAtIndex:0],[self.subjects objectAtIndex:1],[self.subjects objectAtIndex:2]);
 }
 
--(NSMutableArray *) getAllSubjects{
+-(NSArray *) getAllSubjects{
     NSLog(@"get called to getAllSubjects");
-    NSMutableArray *subjects = [[NSMutableArray alloc]init];
-    return  subjects;
+    
+    return [NSArray arrayWithArray:self.subjects];
 }
 
-- (NSMutableArray *)getALLBuildingCode{
+- (NSArray *)getALLBuildingCode{
     NSLog(@"get called to getAllBuildingCode");
-    NSMutableArray *bc = [[NSMutableArray alloc]init];
+    NSArray *bc = [[NSArray alloc]init];
     return  bc;
 }
 
 
--(NSMutableArray *)getALLCourseOfSubject:(NSString *)subject{
+-(NSArray *)getALLCourseOfSubject:(NSString *)subject{
     NSLog(@"%@%@",@"get called to getAllCoursesOfSubject:",subject);
-    NSMutableArray *courses = [[NSMutableArray alloc]init];
+    NSArray *courses = [[NSMutableArray alloc]init];
     return  courses;
 }
 
