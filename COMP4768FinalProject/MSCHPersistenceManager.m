@@ -10,4 +10,28 @@
 
 @implementation MSCHPersistenceManager
 
+-(void)saveAllCourses:(NSArray *)allCourses{
+    
+}
+
+-(NSArray *)getAllCourses{
+    return nil;
+}
+
+-(void)saveSelectedCourses:(NSArray *)selectedCouses{
+    
+}
+
+-(NSArray *)getSelectedCourses{
+    return nil;
+}
+
+- (void)saveAddedEvent:(NSArray *)addedEvent{
+    
+}
+
+- (NSArray *)getAddedEvent{
+    return nil;
+}
+
 @end
