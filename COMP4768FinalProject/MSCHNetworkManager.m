@@ -32,7 +32,7 @@
         for(int j=0;j<[coursesarr count];j++){
             NSString *courseStr = [coursesarr objectAtIndex:j];
             NSArray *courseDescriptionArr = [courseStr componentsSeparatedByString:@","];
-            NSLog(@"%@%@",@"course number:",[courseDescriptionArr objectAtIndex:0]);
+            
             NSMutableDictionary *course = [[NSMutableDictionary alloc]init];
             [course setValue:[self.subjects objectAtIndex:i] forKey:@"subject"];
             [course setValue:[courseDescriptionArr objectAtIndex:0] forKey:@"number"];
@@ -41,7 +41,6 @@
             [course setValue:[courseDescriptionArr objectAtIndex:3] forKey:@"title"];
             [course setValue:[courseDescriptionArr objectAtIndex:4] forKey:@"instructor"];
             
-            NSLog(@"%@%i",@"number of lectures:",[[courseDescriptionArr objectAtIndex:5] intValue]);
             NSMutableArray *lectures = [[NSMutableArray alloc]init];
             for(int k=0;k<[[courseDescriptionArr objectAtIndex:5] intValue];k++){
                 NSMutableDictionary *lecture = [[NSMutableDictionary alloc]init];
@@ -81,16 +80,22 @@
     NSArray *bc = [[NSArray alloc]init];
     return  bc;
 }
-
+-(NSArray *) getAllCourse{
+    NSMutableArray *allCourses = [[NSMutableArray alloc] init];
+    for(int i=0;i<[self.subjects count];i++){
+        [allCourses addObjectsFromArray:[self.courses valueForKey:[self.subjects objectAtIndex:i]]];
+    }
+    return allCourses;
+}
 
 -(NSArray *)getALLCourseOfSubject:(NSString *)subject{
-    NSLog(@"%@%@",@"get called to getAllCoursesOfSubject:",subject);
+    
     NSArray *courses = [[NSMutableArray alloc]initWithArray:[self.courses valueForKey:subject]];
     return  courses;
 }
 
 -(NSArray *)getALLCourseOfSubject:(NSString *)subject number:(NSString *)number{
-    NSLog(@"%@%@%@",@"get called to getAllCoursesOfSubject and number:",subject,number);
+    
     NSMutableArray *courses = [[NSMutableArray alloc]init];
     NSArray *coursesOfSubject = [self getALLCourseOfSubject:subject];
     for(int i=0;i<[coursesOfSubject count];i++){

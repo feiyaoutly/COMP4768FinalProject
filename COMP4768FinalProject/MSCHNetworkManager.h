@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) fetchDataFromServer;
 -(NSArray *) getAllSubjects;
 -(NSArray *) getALLBuildingCode;
+-(NSArray *) getAllCourse;
 -(NSArray *) getALLCourseOfSubject:(NSString *)subject;
 -(NSArray *) getALLCourseOfSubject:(NSString *)subject number:(NSString *)number;
 -(NSDictionary *) getCourseOfSubject:(NSString *)subject number:(NSString *)number section:(NSString *)section;

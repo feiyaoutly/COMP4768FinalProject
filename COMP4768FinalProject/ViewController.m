@@ -21,6 +21,14 @@
     [nm fetchDataFromServer];
     NSArray *courses=[nm getALLCourseOfSubject:@"MATH"];
     NSLog(@"%@%@",@"from main viewcontroller get:",[[courses objectAtIndex:3]valueForKey:@"hasLab"]);
+    NSArray *allCourses=[nm getAllCourse];
+    MSCHPersistenceManager *pm = [[MSCHPersistenceManager alloc]init];
+    [pm initPList];
+    [pm saveAllCourses:allCourses];
+    courses = [pm getAllCourses];
+    NSLog(@"%@%@",@"from main viewcontroller get:",[[courses objectAtIndex:0]valueForKey:@"subject"]);
+    
+    
 }
 
 /*

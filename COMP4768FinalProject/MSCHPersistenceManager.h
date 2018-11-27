@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MSCHPersistenceManager : NSObject
 
+-(void) initPList;
+
 -(void) saveAllCourses:(NSArray *)allCourses;
 -(NSArray *) getAllCourses;
 
