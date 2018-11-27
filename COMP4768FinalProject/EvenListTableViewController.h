@@ -1,19 +1,16 @@
 //
-//  ViewController.h
+//  EvenListTableViewController.h
 //  COMP4768FinalProject
 //
-//  Created by wenrui zhen on 2018-11-25.
+//  Created by wenrui zhen on 2018-11-27.
 //  Copyright © 2018 Feiya Ou. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "MSCHNetworkManager.h"
-
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ViewController : UITabBarController
-
+@interface EvenListTableViewController : UITableViewController
 
 @end
 
