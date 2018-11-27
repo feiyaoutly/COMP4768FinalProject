@@ -120,4 +120,60 @@
     return addedEvent;
 }
 
+- (BOOL)addEvent:(NSDictionary *)event{
+    NSMutableArray *currentEvents = [NSMutableArray arrayWithArray:[self getAddedEvent]];
+    
+    
+    for(int i=0;i<[currentEvents count];i++){
+        if([[[currentEvents objectAtIndex:i] valueForKey:@"subject"] isEqualToString:[event valueForKey:@"subject"]] && [[[currentEvents objectAtIndex:i] valueForKey:@"number"] isEqualToString:[event valueForKey:@"number"]] && [[[currentEvents objectAtIndex:i] valueForKey:@"section"] isEqualToString:[event valueForKey:@"section"]] && [[[currentEvents objectAtIndex:i] valueForKey:@"name"] isEqualToString:[event valueForKey:@"name"]])
+        {
+            return NO;
+        }
+    }
+    [currentEvents addObject:event];
+    [self saveAddedEvent:currentEvents];
+    return YES;
+}
+
+-(BOOL)addOneSelectedCourse:(NSDictionary *)course{
+    NSMutableArray *currentCourses = [NSMutableArray arrayWithArray:[self getSelectedCourses]];
+    
+    for(int i=0;i<[currentCourses count];i++){
+        if([[[currentCourses objectAtIndex:i] valueForKey:@"subject"] isEqualToString:[course valueForKey:@"subject"]] && [[[currentCourses objectAtIndex:i] valueForKey:@"number"] isEqualToString:[course valueForKey:@"number"]] && [[[currentCourses objectAtIndex:i] valueForKey:@"section"] isEqualToString:[course valueForKey:@"section"]])
+        {
+            return NO;
+        }
+    }
+    [currentCourses addObject:course];
+    [self saveSelectedCourses:currentCourses];
+    return YES;
+}
+
+-(BOOL)removeEventByCourseSubject:(NSString *)subject courseNumber:(NSString *)number courseSection:(NSString *)section eventName:(NSString *)name{
+    NSMutableArray *currentEvents = [NSMutableArray arrayWithArray:[self getAddedEvent]];
+    
+    for(int i=0;i<[currentEvents count];i++){
+        if([[[currentEvents objectAtIndex:i] valueForKey:@"subject"] isEqualToString:subject] && [[[currentEvents objectAtIndex:i] valueForKey:@"number"] isEqualToString:number] && [[[currentEvents objectAtIndex:i] valueForKey:@"section"] isEqualToString:section] && [[[currentEvents objectAtIndex:i] valueForKey:@"name"] isEqualToString:name]){
+            [currentEvents removeObjectAtIndex:i];
+            [self saveAddedEvent:currentEvents];
+            return YES;
+        }
+    }
+    return NO;
+}
+
+-(BOOL)removeOneSelectedCourseBySubject:(NSString *)subject number:(NSString *)number section:(NSString *)section{
+    NSMutableArray *currentCourses = [NSMutableArray arrayWithArray:[self getSelectedCourses]];
+    
+    for(int i=0;i<[currentCourses count];i++){
+        if([[[currentCourses objectAtIndex:i] valueForKey:@"subject"] isEqualToString:subject] && [[[currentCourses objectAtIndex:i] valueForKey:@"number"] isEqualToString:number] && [[[currentCourses objectAtIndex:i] valueForKey:@"section"] isEqualToString:section]){
+            [currentCourses removeObjectAtIndex:i];
+            [self saveAddedEvent:currentCourses];
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
 @end
