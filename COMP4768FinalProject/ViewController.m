@@ -9,7 +9,8 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property (strong,nonatomic) MSCHPersistenceManager *pm;
+@property (strong,nonatomic) MSCHNetworkManager *nm;
 @end
 
 @implementation ViewController
@@ -17,15 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    MSCHNetworkManager *nm = [[MSCHNetworkManager alloc]init];
-    [nm fetchDataFromServer];
-    NSArray *courses=[nm getALLCourseOfSubject:@"MATH"];
+    self.nm = [[MSCHNetworkManager alloc]init];
+    [self.nm fetchDataFromServer];
+    self.pm = [[MSCHPersistenceManager alloc]init];
+    
+    //testing below 
+    NSArray *courses=[self.nm getALLCourseOfSubject:@"MATH"];
     NSLog(@"%@%@",@"from main viewcontroller get:",[[courses objectAtIndex:3]valueForKey:@"hasLab"]);
-    NSArray *allCourses=[nm getAllCourse];
-    MSCHPersistenceManager *pm = [[MSCHPersistenceManager alloc]init];
-    [pm initPList];
-    [pm saveAllCourses:allCourses];
-    courses = [pm getAllCourses];
+    NSArray *allCourses=[self.nm getAllCourse];
+    
+    [self.pm initPList];
+    [self.pm saveAllCourses:allCourses];
+    courses = [self.pm getAllCourses];
     NSLog(@"%@%@",@"from main viewcontroller get:",[[courses objectAtIndex:0]valueForKey:@"subject"]);
     
     
