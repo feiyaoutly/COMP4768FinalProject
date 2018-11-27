@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EvenAdderViewController : ViewController
+@interface EvenAdderViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 - (IBAction)addPress:(id)sender;
 
