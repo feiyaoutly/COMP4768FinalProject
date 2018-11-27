@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MSCHNetworkManager.h"
 #import "EvenAdderViewController.h"
+#import "EventTableViewCell.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
