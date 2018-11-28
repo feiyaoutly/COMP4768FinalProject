@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MSCHPersistenceManager.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DeleteCourseViewController : UIViewController
+@interface DeleteCourseViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDataSource>
 
 @end
 

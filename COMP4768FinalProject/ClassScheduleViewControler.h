@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AddCourseViewController.h"
+#import "DeleteCourseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

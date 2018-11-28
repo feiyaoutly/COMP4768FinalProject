@@ -233,9 +233,54 @@
                     <view key="view" contentMode="scaleToFill" id="sr5-D9-lQu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZC8-16-bgN">
+                                <rect key="frame" x="237.5" y="577" width="87.5" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="GYy-Hi-eIA" eventType="touchUpInside" id="oVv-aG-NsH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUd-7F-S4q">
+                                <rect key="frame" x="50" y="577" width="87.5" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="GYy-Hi-eIA" eventType="touchUpInside" id="8gw-8G-bua"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MU4-Gb-IZj">
+                                <rect key="frame" x="0.0" y="77.5" width="375" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select A Course To Delete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KW-G8-unz">
+                                <rect key="frame" x="20" y="30" width="335" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EqP-IY-BVd" firstAttribute="bottom" secondItem="eUd-7F-S4q" secondAttribute="bottom" constant="50" id="4qm-HK-qAb"/>
+                            <constraint firstItem="MU4-Gb-IZj" firstAttribute="trailing" secondItem="EqP-IY-BVd" secondAttribute="trailing" id="6xx-A9-KLk"/>
+                            <constraint firstItem="eUd-7F-S4q" firstAttribute="leading" secondItem="EqP-IY-BVd" secondAttribute="leading" constant="50" id="L8a-XB-kRP"/>
+                            <constraint firstItem="0KW-G8-unz" firstAttribute="centerX" secondItem="sr5-D9-lQu" secondAttribute="centerX" id="RIO-Bv-c21"/>
+                            <constraint firstItem="ZC8-16-bgN" firstAttribute="leading" secondItem="eUd-7F-S4q" secondAttribute="trailing" constant="100" id="Sk2-gd-KKD"/>
+                            <constraint firstItem="EqP-IY-BVd" firstAttribute="trailing" secondItem="ZC8-16-bgN" secondAttribute="trailing" constant="50" id="V44-kU-f4h"/>
+                            <constraint firstItem="ZC8-16-bgN" firstAttribute="width" secondItem="eUd-7F-S4q" secondAttribute="width" id="V8m-h2-8a0"/>
+                            <constraint firstItem="0KW-G8-unz" firstAttribute="leading" secondItem="EqP-IY-BVd" secondAttribute="leading" constant="20" id="dDP-wG-zOW"/>
+                            <constraint firstItem="MU4-Gb-IZj" firstAttribute="leading" secondItem="EqP-IY-BVd" secondAttribute="leading" id="hV8-gZ-yHo"/>
+                            <constraint firstItem="ZC8-16-bgN" firstAttribute="height" secondItem="eUd-7F-S4q" secondAttribute="height" id="ko5-mt-WeW"/>
+                            <constraint firstItem="ZC8-16-bgN" firstAttribute="centerY" secondItem="eUd-7F-S4q" secondAttribute="centerY" id="nwz-v3-mXH"/>
+                            <constraint firstItem="MU4-Gb-IZj" firstAttribute="top" secondItem="0KW-G8-unz" secondAttribute="bottom" constant="20" id="rDQ-AU-5Eb"/>
+                            <constraint firstItem="0KW-G8-unz" firstAttribute="top" secondItem="EqP-IY-BVd" secondAttribute="top" constant="10" id="tVN-PO-FJN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="EqP-IY-BVd"/>
                     </view>
+                    <connections>
+                        <outlet property="coursePicker" destination="MU4-Gb-IZj" id="fiT-Sm-gLW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Onb-wj-nW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -321,7 +366,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView tag="9501" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-iP-KTm">
-                                <rect key="frame" x="91" y="37" width="320" height="90"/>
+                                <rect key="frame" x="90.5" y="37" width="320" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="h4h-Cb-Oug"/>
                                 </constraints>

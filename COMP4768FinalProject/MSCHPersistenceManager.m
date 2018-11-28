@@ -157,15 +157,19 @@
 
 -(BOOL)addOneSelectedCourse:(NSDictionary *)course{
     NSMutableArray *currentCourses = [NSMutableArray arrayWithArray:[self getSelectedCourses]];
-    
-    for(int i=0;i<[currentCourses count];i++){
-        if([[[currentCourses objectAtIndex:i] valueForKey:@"subject"] isEqualToString:[course valueForKey:@"subject"]] && [[[currentCourses objectAtIndex:i] valueForKey:@"number"] isEqualToString:[course valueForKey:@"number"]] && [[[currentCourses objectAtIndex:i] valueForKey:@"section"] isEqualToString:[course valueForKey:@"section"]])
-        {
-            return NO;
+    NSLog(@"%@%lu",@"slected course before add:",[currentCourses count]);
+    if([currentCourses count]>=1){
+        for(int i=0;i<[currentCourses count];i++){
+            if([[[currentCourses objectAtIndex:i] valueForKey:@"subject"] isEqualToString:[course valueForKey:@"subject"]] && [[[currentCourses objectAtIndex:i] valueForKey:@"number"] isEqualToString:[course valueForKey:@"number"]] && [[[currentCourses objectAtIndex:i] valueForKey:@"section"] isEqualToString:[course valueForKey:@"section"]])
+            {
+                return NO;
+            }
         }
     }
+    
     [currentCourses addObject:course];
     [self saveSelectedCourses:currentCourses];
+    NSLog(@"%@%lu",@"slected course after add:",[currentCourses count]);
     return YES;
 }
 
@@ -184,11 +188,12 @@
 
 -(BOOL)removeOneSelectedCourseBySubject:(NSString *)subject number:(NSString *)number section:(NSString *)section{
     NSMutableArray *currentCourses = [NSMutableArray arrayWithArray:[self getSelectedCourses]];
-    
+    NSLog(@"%@%lu",@"slected course before remove:",[currentCourses count]);
     for(int i=0;i<[currentCourses count];i++){
         if([[[currentCourses objectAtIndex:i] valueForKey:@"subject"] isEqualToString:subject] && [[[currentCourses objectAtIndex:i] valueForKey:@"number"] isEqualToString:number] && [[[currentCourses objectAtIndex:i] valueForKey:@"section"] isEqualToString:section]){
             [currentCourses removeObjectAtIndex:i];
-            [self saveAddedEvent:currentCourses];
+            NSLog(@"%@%lu",@"slected course adfter remove:",[currentCourses count]);
+            [self saveSelectedCourses:currentCourses];
             return YES;
         }
     }

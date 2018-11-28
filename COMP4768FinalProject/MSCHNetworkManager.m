@@ -70,13 +70,13 @@
 }
 
 -(NSArray *) getAllSubjects{
-    NSLog(@"get called to getAllSubjects");
+   
     
     return [NSArray arrayWithArray:self.subjects];
 }
 
 - (NSArray *)getALLBuildingCode{
-    NSLog(@"get called to getAllBuildingCode");
+  
     NSArray *bc = [[NSArray alloc]init];
     return  bc;
 }

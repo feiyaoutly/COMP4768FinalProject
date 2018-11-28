@@ -33,13 +33,7 @@
     self.sectionPicker.delegate=self;
     
 }
-- (IBAction)subjectConfirmed:(id)sender {
-}
-- (IBAction)numberConfirmed:(id)sender {
-}
 
-- (IBAction)sectionConfirmed:(id)sender {
-}
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
@@ -62,7 +56,7 @@
         return [sections count];
         
     }
-    return nil;
+    return 0;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -101,7 +95,21 @@
     
 }
 - (IBAction)addButtonTapped:(id)sender {
-  
+    MSCHPersistenceManager *pm=[[MSCHPersistenceManager alloc]init];
+    
+    NSArray *subjects = [self.nm getAllSubjects];
+    NSMutableDictionary *selectedCourse = [[NSMutableDictionary alloc]init];
+    NSString *subject =[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]];
+    NSArray *coursesNumbers = [self.nm getAllCourseNumberOfSubject:subject];
+    NSString *number = [coursesNumbers objectAtIndex:[self.numberPicker selectedRowInComponent:0]];
+    NSArray *sections = [self.nm getAllSectionNumberOfSubject:subject number:number];
+    NSString *section = [sections objectAtIndex:[self.sectionPicker selectedRowInComponent:0]];
+    [selectedCourse setValue:subject forKey:@"subject"];
+    [selectedCourse setValue:number forKey:@"number"];
+    [selectedCourse setValue:section forKey:@"section"];
+    
+    [pm addOneSelectedCourse:selectedCourse];
+  [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)cancelButtonTapped:(id)sender {
     

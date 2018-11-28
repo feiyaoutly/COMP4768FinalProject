@@ -9,7 +9,9 @@
 #import "DeleteCourseViewController.h"
 
 @interface DeleteCourseViewController ()
-
+@property (weak, nonatomic) IBOutlet UIPickerView *coursePicker;
+@property (strong,nonatomic) MSCHPersistenceManager *pm;
+@property (strong,nonatomic) NSMutableArray *selectedCourses;
 @end
 
 @implementation DeleteCourseViewController
@@ -17,6 +19,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"%@",@"delete course controller loaded");
+    self.pm = [[MSCHPersistenceManager alloc]init];
+    self.selectedCourses = [NSMutableArray arrayWithArray:[self.pm getSelectedCourses]];
+    
+    self.coursePicker.dataSource=self;
+    self.coursePicker.delegate=self;
+    
+}
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return [self.selectedCourses count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    NSDictionary *course = [self.selectedCourses objectAtIndex:row];
+    
+    return [NSString stringWithFormat:@"%@ %@ %@",[course valueForKey:@"subject"],[course valueForKey:@"number"],[course valueForKey:@"section"]];
+}
+
+- (IBAction)cancelButtonTapped:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)deleteButtonTapped:(id)sender {
+    NSDictionary *courseToDelete = [self.selectedCourses objectAtIndex:[self.coursePicker selectedRowInComponent:0]];
+    [self.pm removeOneSelectedCourseBySubject:[courseToDelete valueForKey:@"subject"] number:[courseToDelete valueForKey:@"number"] section:[courseToDelete valueForKey:@"section"]];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
