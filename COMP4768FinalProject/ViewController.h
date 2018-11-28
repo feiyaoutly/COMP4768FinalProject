@@ -10,6 +10,7 @@
 #import "MSCHNetworkManager.h"
 #import "EvenAdderViewController.h"
 #import "EventTableViewCell.h"
+#import "ClassScheduleViewControler.h"
 
 
 NS_ASSUME_NONNULL_BEGIN

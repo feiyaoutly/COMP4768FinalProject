@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSArray *) getALLBuildingCode;
 -(NSArray *) getAllCourse;
 -(NSArray *) getALLCourseOfSubject:(NSString *)subject;
+-(NSArray *) getAllCourseNumberOfSubject:(NSString *)subject;
+-(NSArray *) getAllSectionNumberOfSubject:(NSString *)subject number:(NSString *)number;
+
 -(NSArray *) getALLCourseOfSubject:(NSString *)subject number:(NSString *)number;
 -(NSDictionary *) getCourseOfSubject:(NSString *)subject number:(NSString *)number section:(NSString *)section;
 

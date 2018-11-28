@@ -105,6 +105,24 @@
     }
     return  courses;
 }
+-(NSArray *)getAllCourseNumberOfSubject:(NSString *)subject{
+    NSMutableArray *courseNumbers =[[NSMutableArray alloc]init];
+    NSArray *coursesOfSubject = [self getALLCourseOfSubject:subject];
+    for(int i = 0;i<[coursesOfSubject count];i++){
+        if(![courseNumbers containsObject:[[coursesOfSubject objectAtIndex:i]valueForKey:@"number"]]){
+            [courseNumbers addObject:[[coursesOfSubject objectAtIndex:i]valueForKey:@"number"]];
+        }
+    }
+    return courseNumbers;
+}
+- (NSArray *)getAllSectionNumberOfSubject:(NSString *)subject number:(NSString *)number{
+    NSArray *coursesOfSubjectAndNumber = [self getALLCourseOfSubject:subject number:number];
+    NSMutableArray *sections = [[NSMutableArray alloc]init];
+    for(int i=0;i<[coursesOfSubjectAndNumber count];i++){
+        [sections addObject:[[coursesOfSubjectAndNumber objectAtIndex:i] valueForKey:@"section"]];
+    }
+    return sections;
+}
 
 - (NSDictionary *)getCourseOfSubject:(NSString *)subject number:(NSString *)number section:(NSString *)section{
     NSArray *coursesOfSubjectAndNumber = [self getALLCourseOfSubject:subject number:number];

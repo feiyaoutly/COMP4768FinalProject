@@ -20,7 +20,6 @@
 		B0B4AF0B21ACC4AA00025E0F /* AllCourses.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0B4AF0A21ACC4AA00025E0F /* AllCourses.plist */; };
 		B0B4AF0D21ACC4C700025E0F /* AddedCourses.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0B4AF0C21ACC4C700025E0F /* AddedCourses.plist */; };
 		B0B4AF0F21ACC4E300025E0F /* AddedEvent.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0B4AF0E21ACC4E300025E0F /* AddedEvent.plist */; };
-		B0B4AF1221AE04C100025E0F /* MSCHClassScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B4AF1121AE04C100025E0F /* MSCHClassScheduleView.m */; };
 		B0B4AF1521AE04FA00025E0F /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B4AF1421AE04FA00025E0F /* EventTableViewCell.m */; };
 		B0B4AF1821AE4A0100025E0F /* ClassScheduleViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B4AF1721AE4A0100025E0F /* ClassScheduleViewControler.m */; };
 		B0B4AF1B21AE4A3200025E0F /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B4AF1A21AE4A3200025E0F /* AddCourseViewController.m */; };
@@ -55,8 +54,6 @@
 		B0B4AF0A21ACC4AA00025E0F /* AllCourses.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AllCourses.plist; sourceTree = "<group>"; };
 		B0B4AF0C21ACC4C700025E0F /* AddedCourses.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AddedCourses.plist; sourceTree = "<group>"; };
 		B0B4AF0E21ACC4E300025E0F /* AddedEvent.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AddedEvent.plist; sourceTree = "<group>"; };
-		B0B4AF1021AE04C100025E0F /* MSCHClassScheduleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCHClassScheduleView.h; sourceTree = "<group>"; };
-		B0B4AF1121AE04C100025E0F /* MSCHClassScheduleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSCHClassScheduleView.m; sourceTree = "<group>"; };
 		B0B4AF1321AE04FA00025E0F /* EventTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
 		B0B4AF1421AE04FA00025E0F /* EventTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		B0B4AF1621AE4A0100025E0F /* ClassScheduleViewControler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassScheduleViewControler.h; sourceTree = "<group>"; };
@@ -118,6 +115,8 @@
 		B0CB76E82191D870007B5D49 /* COMP4768FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				717587A221AB8B5C00550B54 /* ViewController.h */,
+				717587A321AB8B5C00550B54 /* ViewController.m */,
 				B0B4AF1621AE4A0100025E0F /* ClassScheduleViewControler.h */,
 				B0B4AF1721AE4A0100025E0F /* ClassScheduleViewControler.m */,
 				B0B4AF1921AE4A3200025E0F /* AddCourseViewController.h */,
@@ -141,8 +140,6 @@
 				B0CB76E92191D870007B5D49 /* AppDelegate.h */,
 				B0CB76EA2191D870007B5D49 /* AppDelegate.m */,
 				B0CB76EF2191D870007B5D49 /* Main.storyboard */,
-				717587A221AB8B5C00550B54 /* ViewController.h */,
-				717587A321AB8B5C00550B54 /* ViewController.m */,
 				B0CB76F22191D871007B5D49 /* image.xcassets */,
 				B0CB76F42191D871007B5D49 /* LaunchScreen.storyboard */,
 				B0CB76F72191D871007B5D49 /* Info.plist */,
@@ -151,8 +148,6 @@
 				B06AA9E921AB7EB2005626BD /* MSCHNetworkManager.m */,
 				B0B4AF0721ACC3B700025E0F /* MSCHPersistenceManager.h */,
 				B0B4AF0821ACC3B700025E0F /* MSCHPersistenceManager.m */,
-				B0B4AF1021AE04C100025E0F /* MSCHClassScheduleView.h */,
-				B0B4AF1121AE04C100025E0F /* MSCHClassScheduleView.m */,
 			);
 			path = COMP4768FinalProject;
 			sourceTree = "<group>";
@@ -245,7 +240,6 @@
 				B0B4AF0921ACC3B700025E0F /* MSCHPersistenceManager.m in Sources */,
 				718F0BED21ADCCAC0032CD26 /* locationmanager.m in Sources */,
 				B06AA9EA21AB7EB2005626BD /* MSCHNetworkManager.m in Sources */,
-				B0B4AF1221AE04C100025E0F /* MSCHClassScheduleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

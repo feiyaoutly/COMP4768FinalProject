@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *subjectPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *numberPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *sectionPicker;
+@property (strong,nonatomic) MSCHNetworkManager *nm;
 
 @end
 
@@ -20,6 +21,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"%@",@"add course view controller loaded");
+   self.nm = [[MSCHNetworkManager alloc]init];
+    [self.nm fetchDataFromServer];
+    NSLog(@"%@%@%@",[[self.nm getAllSubjects]objectAtIndex:0],[[self.nm getAllSubjects]objectAtIndex:1],[[self.nm getAllSubjects]objectAtIndex:2] );
+    self.subjectPicker.dataSource=self;
+    self.subjectPicker.delegate=self;
+    self.numberPicker.dataSource=self;
+    self.numberPicker.delegate=self;
+    self.sectionPicker.dataSource=self;
+    self.sectionPicker.delegate=self;
+    
 }
 - (IBAction)subjectConfirmed:(id)sender {
 }
@@ -28,12 +40,72 @@
 
 - (IBAction)sectionConfirmed:(id)sender {
 }
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    NSArray *subjects = [self.nm getAllSubjects];
+    if(pickerView.tag==9501){
+        return [subjects count];
+    }
+    else if(pickerView.tag==9502){
+        
+        NSArray *coursesNumbers = [self.nm getAllCourseNumberOfSubject:[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]]];
+        return [coursesNumbers count];
+    }
+    else if(pickerView.tag==9503){
+        NSString *subject =[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]];
+        NSArray *coursesNumbers = [self.nm getAllCourseNumberOfSubject:subject];
+        NSString *number = [coursesNumbers objectAtIndex:[self.numberPicker selectedRowInComponent:0]];
+        NSArray *sections = [self.nm getAllSectionNumberOfSubject:subject number:number];
+        
+        return [sections count];
+        
+    }
+    return nil;
+}
 
-
-
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    NSArray *subjects = [self.nm getAllSubjects];
+    if(pickerView.tag==9501){
+        return [subjects objectAtIndex:row];
+    }
+    else if(pickerView.tag==9502){
+        
+        NSArray *coursesNumbers = [self.nm getAllCourseNumberOfSubject:[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]]];
+        return [coursesNumbers objectAtIndex:row];
+    }
+    else if(pickerView.tag==9503){
+        NSString *subject =[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]];
+        NSArray *coursesNumbers = [self.nm getAllCourseNumberOfSubject:subject];
+        NSString *number = [coursesNumbers objectAtIndex:[self.numberPicker selectedRowInComponent:0]];
+        NSArray *sections = [self.nm getAllSectionNumberOfSubject:subject number:number];
+        NSString *section = [sections objectAtIndex:row];
+        
+        return section;
+    }
+    return nil;
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if(pickerView.tag==9501){
+        [self.numberPicker reloadAllComponents];
+        [self.sectionPicker reloadAllComponents];
+    }
+    else if(pickerView.tag==9502){
+        [self.sectionPicker reloadAllComponents];
+       
+        
+    }
+    
+    
+}
 - (IBAction)addButtonTapped:(id)sender {
+  
 }
 - (IBAction)cancelButtonTapped:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

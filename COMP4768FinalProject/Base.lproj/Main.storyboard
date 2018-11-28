@@ -266,20 +266,20 @@
                                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Delete"/>
+                                                <connections>
+                                                    <segue destination="GYy-Hi-eIA" kind="presentation" identifier="deleteCourse" id="UpD-9g-I2k"/>
+                                                </connections>
                                             </button>
-                                            <connections>
-                                                <segue destination="GYy-Hi-eIA" kind="presentation" id="XII-Ds-n6T"/>
-                                            </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="SIQ-Wd-xT8">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ODR-kQ-spu">
                                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Add"/>
+                                                <connections>
+                                                    <segue destination="TXn-Ax-t2X" kind="presentation" identifier="addCourse" id="ipo-Re-70W"/>
+                                                </connections>
                                             </button>
-                                            <connections>
-                                                <segue destination="TXn-Ax-t2X" kind="presentation" id="ypI-LF-sec"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -320,7 +320,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-iP-KTm">
+                            <pickerView tag="9501" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iO-iP-KTm">
                                 <rect key="frame" x="86" y="37" width="233" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="h4h-Cb-Oug"/>
@@ -350,13 +350,13 @@
                                     <action selector="sectionConfirmed:" destination="TXn-Ax-t2X" eventType="touchUpInside" id="gtK-lf-13I"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHG-je-txl">
+                            <pickerView tag="9502" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHG-je-txl">
                                 <rect key="frame" x="42.5" y="161" width="320" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="yhs-2e-hZM"/>
                                 </constraints>
                             </pickerView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBE-vm-3b2">
+                            <pickerView tag="9503" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBE-vm-3b2">
                                 <rect key="frame" x="42.5" y="285" width="320" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="4TQ-tt-bSc"/>
