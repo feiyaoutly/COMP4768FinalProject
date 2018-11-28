@@ -37,7 +37,8 @@
     
         NSDate *date = self.datePicker.date;
         NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-        [formatter setDateFormat:@"yyyy-MM-dd"];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm a"];
+    
         NSString *stringFromDate = [formatter stringFromDate:date];
         NSLog(@"%@", stringFromDate);
         
