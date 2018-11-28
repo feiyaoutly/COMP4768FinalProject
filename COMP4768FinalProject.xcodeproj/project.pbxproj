@@ -22,6 +22,9 @@
 		B0B4AF0F21ACC4E300025E0F /* AddedEvent.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0B4AF0E21ACC4E300025E0F /* AddedEvent.plist */; };
 		B0B4AF1221AE04C100025E0F /* MSCHClassScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B4AF1121AE04C100025E0F /* MSCHClassScheduleView.m */; };
 		B0B4AF1521AE04FA00025E0F /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B4AF1421AE04FA00025E0F /* EventTableViewCell.m */; };
+		B0B4AF1821AE4A0100025E0F /* ClassScheduleViewControler.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B4AF1721AE4A0100025E0F /* ClassScheduleViewControler.m */; };
+		B0B4AF1B21AE4A3200025E0F /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B4AF1A21AE4A3200025E0F /* AddCourseViewController.m */; };
+		B0B4AF1E21AE4A5100025E0F /* DeleteCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B4AF1D21AE4A5100025E0F /* DeleteCourseViewController.m */; };
 		B0CB76EB2191D870007B5D49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CB76EA2191D870007B5D49 /* AppDelegate.m */; };
 		B0CB76F12191D870007B5D49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0CB76EF2191D870007B5D49 /* Main.storyboard */; };
 		B0CB76F32191D871007B5D49 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0CB76F22191D871007B5D49 /* image.xcassets */; };
@@ -56,6 +59,12 @@
 		B0B4AF1121AE04C100025E0F /* MSCHClassScheduleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSCHClassScheduleView.m; sourceTree = "<group>"; };
 		B0B4AF1321AE04FA00025E0F /* EventTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
 		B0B4AF1421AE04FA00025E0F /* EventTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
+		B0B4AF1621AE4A0100025E0F /* ClassScheduleViewControler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassScheduleViewControler.h; sourceTree = "<group>"; };
+		B0B4AF1721AE4A0100025E0F /* ClassScheduleViewControler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassScheduleViewControler.m; sourceTree = "<group>"; };
+		B0B4AF1921AE4A3200025E0F /* AddCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddCourseViewController.h; sourceTree = "<group>"; };
+		B0B4AF1A21AE4A3200025E0F /* AddCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewController.m; sourceTree = "<group>"; };
+		B0B4AF1C21AE4A5100025E0F /* DeleteCourseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteCourseViewController.h; sourceTree = "<group>"; };
+		B0B4AF1D21AE4A5100025E0F /* DeleteCourseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteCourseViewController.m; sourceTree = "<group>"; };
 		B0CB76E62191D870007B5D49 /* COMP4768FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = COMP4768FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CB76E92191D870007B5D49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B0CB76EA2191D870007B5D49 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -109,6 +118,12 @@
 		B0CB76E82191D870007B5D49 /* COMP4768FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				B0B4AF1621AE4A0100025E0F /* ClassScheduleViewControler.h */,
+				B0B4AF1721AE4A0100025E0F /* ClassScheduleViewControler.m */,
+				B0B4AF1921AE4A3200025E0F /* AddCourseViewController.h */,
+				B0B4AF1A21AE4A3200025E0F /* AddCourseViewController.m */,
+				B0B4AF1C21AE4A5100025E0F /* DeleteCourseViewController.h */,
+				B0B4AF1D21AE4A5100025E0F /* DeleteCourseViewController.m */,
 				718F0BE821ADC9E70032CD26 /* locationGPS.m */,
 				718F0BEA21ADCA230032CD26 /* locationGPS.h */,
 				718F0BEB21ADCC9B0032CD26 /* locationManager.h */,
@@ -218,11 +233,14 @@
 				718F0BD821AD944E0032CD26 /* EvenAdderViewController.m in Sources */,
 				B0CB76F92191D871007B5D49 /* main.m in Sources */,
 				B0B4AF1521AE04FA00025E0F /* EventTableViewCell.m in Sources */,
+				B0B4AF1821AE4A0100025E0F /* ClassScheduleViewControler.m in Sources */,
 				718F0BCF21AD8F8A0032CD26 /* EvenListTableViewController.m in Sources */,
 				718F0BDE21ADA2150032CD26 /* MapViewController.m in Sources */,
+				B0B4AF1B21AE4A3200025E0F /* AddCourseViewController.m in Sources */,
 				718F0BEF21ADCD350032CD26 /* Myanotation.m in Sources */,
 				718F0BE921ADC9E80032CD26 /* locationGPS.m in Sources */,
 				B0CB76EB2191D870007B5D49 /* AppDelegate.m in Sources */,
+				B0B4AF1E21AE4A5100025E0F /* DeleteCourseViewController.m in Sources */,
 				717587A421AB8B5C00550B54 /* ViewController.m in Sources */,
 				B0B4AF0921ACC3B700025E0F /* MSCHPersistenceManager.m in Sources */,
 				718F0BED21ADCCAC0032CD26 /* locationmanager.m in Sources */,
