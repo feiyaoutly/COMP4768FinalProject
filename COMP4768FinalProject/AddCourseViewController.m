@@ -9,6 +9,9 @@
 #import "AddCourseViewController.h"
 
 @interface AddCourseViewController ()
+@property (weak, nonatomic) IBOutlet UIPickerView *subjectPicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *numberPicker;
+@property (weak, nonatomic) IBOutlet UIPickerView *sectionPicker;
 
 @end
 
@@ -18,6 +21,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+- (IBAction)subjectConfirmed:(id)sender {
+}
+- (IBAction)numberConfirmed:(id)sender {
+}
+
+- (IBAction)sectionConfirmed:(id)sender {
+}
+
+
+
+- (IBAction)addButtonTapped:(id)sender {
+}
+- (IBAction)cancelButtonTapped:(id)sender {
+}
+
 
 /*
 #pragma mark - Navigation
