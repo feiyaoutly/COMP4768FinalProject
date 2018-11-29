@@ -48,6 +48,7 @@
             NSString *lectureLocation = [lectureInfo valueForKey:@"lectureLocation"];
             UIButton *lecture = [UIButton buttonWithType:UIButtonTypeSystem];
             NSString *buttonTitle = [NSString stringWithFormat:@"%@ %@",thisSubject,thisNumber];
+            buttonTitle = [buttonTitle stringByAppendingString:[NSString stringWithFormat:@"%@%@",@"\r\n",thisSection]];
             buttonTitle = [buttonTitle stringByAppendingString:[NSString stringWithFormat:@"%@%@",@"\r\n",lectureLocation]];
             [lecture setTitle:buttonTitle forState:UIControlStateNormal];
             CGFloat xLocation = 0.0;
@@ -91,6 +92,7 @@
             
             lecture.bounds = CGRectMake(0, 0, 100, 50);
             lecture.center = CGPointMake(xLocation, yLocation);
+            [lecture addTarget:self action:@selector(courseClicked:) forControlEvents:UIControlEventTouchUpInside];
             
             lecture.tag = 9000;
             
@@ -174,6 +176,7 @@
                 NSString *lectureLocation = [lectureInfo valueForKey:@"lectureLocation"];
                 UIButton *lecture = [UIButton buttonWithType:UIButtonTypeSystem];
                 NSString *buttonTitle = [NSString stringWithFormat:@"%@ %@",thisSubject,thisNumber];
+                buttonTitle = [buttonTitle stringByAppendingString:[NSString stringWithFormat:@"%@%@",@"\r\n",thisSection]];
                 buttonTitle = [buttonTitle stringByAppendingString:[NSString stringWithFormat:@"%@%@",@"\r\n",lectureLocation]];
                 [lecture setTitle:buttonTitle forState:UIControlStateNormal];
                 CGFloat xLocation = 0.0;
@@ -217,6 +220,7 @@
                 
                 lecture.bounds = CGRectMake(0, 0, 100, 50);
                 lecture.center = CGPointMake(xLocation, yLocation);
+                [lecture addTarget:self action:@selector(courseClicked:) forControlEvents:UIControlEventTouchUpInside];
                 
                 lecture.tag = 9000;
                 
@@ -224,6 +228,13 @@
             }
         }
     }
+}
+
+-(void)courseClicked:(UIButton *)sender{
+    NSLog(@"%@%@",@"clicked course:",sender.titleLabel.text);
+    [self performSegueWithIdentifier:@"classDetail" sender:sender];
+    //ClassDetailViewController *vc = [[ClassDetailViewController alloc]init];
+    //[self presentViewController:vc animated:YES completion:nil];
 }
 
 
@@ -235,6 +246,21 @@
     // Pass the selected object to the new view controller.
     if([[segue identifier] isEqualToString:@"addCourse"]){
         NSLog(@"%@",@"prepare segue way for add course");
+    }
+    else if([[segue identifier] isEqualToString:@"classDetail"])
+    {
+        UIButton *button = (UIButton*)sender;
+        NSLog(@"%@%@",@"sender text",button.titleLabel.text);
+        ClassDetailViewController *vc = [segue destinationViewController];
+        NSArray *titlearr = [button.titleLabel.text componentsSeparatedByString:@"\r\n"];
+        NSArray *subanum = [[titlearr objectAtIndex:0] componentsSeparatedByString:@" "];
+        NSString *subject = [subanum objectAtIndex:0];
+        NSString *number = [subanum objectAtIndex:1];
+        NSString *section = [titlearr objectAtIndex:1];
+        vc.subject = subject;
+        vc.number = number;
+        vc.section=section;
+        
     }
 }
 

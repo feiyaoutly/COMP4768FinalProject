@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AddCourseViewController.h"
 #import "DeleteCourseViewController.h"
+#import "ClassDetailViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

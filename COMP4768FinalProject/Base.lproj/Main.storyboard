@@ -416,7 +416,89 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Onb-wj-nW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1078" y="-1240"/>
+            <point key="canvasLocation" x="-1484" y="-1218"/>
+        </scene>
+        <!--Class Detail View Controller-->
+        <scene sceneID="jp8-dy-pRo">
+            <objects>
+                <viewController id="rHM-t5-Jdb" customClass="ClassDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TYa-d6-1kC" customClass="UIScrollView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAZ-ib-hNY">
+                                <rect key="frame" x="30" y="40" width="60" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="BACK"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="rHM-t5-Jdb" eventType="touchUpInside" id="8KV-Tv-Ywa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DpC-PY-EcL">
+                                <rect key="frame" x="30" y="110" width="78" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructor:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ZT-9f-gPT">
+                                <rect key="frame" x="30" y="176" width="102" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JqJ-Yv-wSA">
+                                <rect key="frame" x="50" y="254" width="275" height="156.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Section:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cf2-cQ-Awc">
+                                <rect key="frame" x="30" y="143" width="82" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="J39-OA-nsE">
+                                <rect key="frame" x="50" y="460.5" width="275" height="156.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3ZT-9f-gPT" firstAttribute="top" secondItem="cf2-cQ-Awc" secondAttribute="bottom" constant="5" id="0Ov-kT-Ymo"/>
+                            <constraint firstItem="CAZ-ib-hNY" firstAttribute="leading" secondItem="FOS-Zq-vwc" secondAttribute="leading" constant="30" id="2EF-8t-efE"/>
+                            <constraint firstItem="CAZ-ib-hNY" firstAttribute="top" secondItem="FOS-Zq-vwc" secondAttribute="top" constant="20" id="2YD-Ah-3Gp"/>
+                            <constraint firstItem="DpC-PY-EcL" firstAttribute="top" secondItem="CAZ-ib-hNY" secondAttribute="bottom" constant="30" id="2gB-2i-4yY"/>
+                            <constraint firstItem="cf2-cQ-Awc" firstAttribute="leading" secondItem="CAZ-ib-hNY" secondAttribute="leading" id="A63-Hm-KYH"/>
+                            <constraint firstItem="3ZT-9f-gPT" firstAttribute="leading" secondItem="CAZ-ib-hNY" secondAttribute="leading" id="EpL-GK-jyn"/>
+                            <constraint firstItem="DpC-PY-EcL" firstAttribute="leading" secondItem="CAZ-ib-hNY" secondAttribute="leading" id="Sst-bP-5Us"/>
+                            <constraint firstItem="FOS-Zq-vwc" firstAttribute="trailing" secondItem="JqJ-Yv-wSA" secondAttribute="trailing" constant="50" id="VeU-zP-ffz"/>
+                            <constraint firstItem="J39-OA-nsE" firstAttribute="width" secondItem="JqJ-Yv-wSA" secondAttribute="width" id="ZWh-yS-KtU"/>
+                            <constraint firstItem="J39-OA-nsE" firstAttribute="height" secondItem="JqJ-Yv-wSA" secondAttribute="height" id="Zha-By-J7R"/>
+                            <constraint firstItem="JqJ-Yv-wSA" firstAttribute="top" secondItem="3ZT-9f-gPT" secondAttribute="bottom" constant="50" id="bBk-C2-sI8"/>
+                            <constraint firstItem="J39-OA-nsE" firstAttribute="top" secondItem="JqJ-Yv-wSA" secondAttribute="bottom" constant="50" id="fTP-u2-wKv"/>
+                            <constraint firstItem="cf2-cQ-Awc" firstAttribute="top" secondItem="DpC-PY-EcL" secondAttribute="bottom" constant="5" id="hhu-Te-RhN"/>
+                            <constraint firstItem="JqJ-Yv-wSA" firstAttribute="leading" secondItem="FOS-Zq-vwc" secondAttribute="leading" constant="50" id="qQm-X1-q3q"/>
+                            <constraint firstItem="FOS-Zq-vwc" firstAttribute="bottom" secondItem="J39-OA-nsE" secondAttribute="bottom" constant="50" id="xm8-30-XaF"/>
+                            <constraint firstItem="J39-OA-nsE" firstAttribute="centerX" secondItem="JqJ-Yv-wSA" secondAttribute="centerX" id="xnv-k3-FUW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FOS-Zq-vwc"/>
+                    </view>
+                    <connections>
+                        <outlet property="courseEvents" destination="J39-OA-nsE" id="JCm-7W-nHg"/>
+                        <outlet property="courseInstructor" destination="3ZT-9f-gPT" id="zOh-90-4rZ"/>
+                        <outlet property="courseLectures" destination="JqJ-Yv-wSA" id="1iK-PG-8fN"/>
+                        <outlet property="courseSection" destination="cf2-cQ-Awc" id="LoX-2A-hFp"/>
+                        <outlet property="courseTitle" destination="DpC-PY-EcL" id="nvP-re-ZV9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S9F-4t-gSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-292" y="-1218.440779610195"/>
         </scene>
         <!--Class Schedule-->
         <scene sceneID="PPo-6U-5gR">
@@ -465,6 +547,7 @@
                     <tabBarItem key="tabBarItem" title="Class Schedule" id="6s0-c2-8iF"/>
                     <connections>
                         <outlet property="scrollView" destination="opb-RH-mcm" id="ASF-f5-YXm"/>
+                        <segue destination="rHM-t5-Jdb" kind="presentation" identifier="classDetail" id="8wH-eZ-0oo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcI-8o-1he" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -570,7 +653,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4T-Gc-eO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="453.60000000000002" y="-1235.5322338830586"/>
+            <point key="canvasLocation" x="1196" y="-1204"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="SSE-8y-AaH">

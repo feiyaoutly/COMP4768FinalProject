@@ -17,6 +17,7 @@
 		718F0BEF21ADCD350032CD26 /* Myanotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 718F0BEE21ADCD350032CD26 /* Myanotation.m */; };
 		B06AA9EA21AB7EB2005626BD /* MSCHNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B06AA9E921AB7EB2005626BD /* MSCHNetworkManager.m */; };
 		B07004FF21AF6EB200AD950E /* EventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07004FE21AF6EB200AD950E /* EventDetailViewController.m */; };
+		B070050221B0239900AD950E /* ClassDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B070050121B0239900AD950E /* ClassDetailViewController.m */; };
 		B0B4AF0921ACC3B700025E0F /* MSCHPersistenceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B4AF0821ACC3B700025E0F /* MSCHPersistenceManager.m */; };
 		B0B4AF0B21ACC4AA00025E0F /* AllCourses.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0B4AF0A21ACC4AA00025E0F /* AllCourses.plist */; };
 		B0B4AF0D21ACC4C700025E0F /* AddedCourses.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0B4AF0C21ACC4C700025E0F /* AddedCourses.plist */; };
@@ -52,6 +53,8 @@
 		B06AA9E921AB7EB2005626BD /* MSCHNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSCHNetworkManager.m; sourceTree = "<group>"; };
 		B07004FD21AF6EB200AD950E /* EventDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailViewController.h; sourceTree = "<group>"; };
 		B07004FE21AF6EB200AD950E /* EventDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventDetailViewController.m; sourceTree = "<group>"; };
+		B070050021B0239900AD950E /* ClassDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassDetailViewController.h; sourceTree = "<group>"; };
+		B070050121B0239900AD950E /* ClassDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailViewController.m; sourceTree = "<group>"; };
 		B0B4AF0721ACC3B700025E0F /* MSCHPersistenceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSCHPersistenceManager.h; sourceTree = "<group>"; };
 		B0B4AF0821ACC3B700025E0F /* MSCHPersistenceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSCHPersistenceManager.m; sourceTree = "<group>"; };
 		B0B4AF0A21ACC4AA00025E0F /* AllCourses.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AllCourses.plist; sourceTree = "<group>"; };
@@ -126,6 +129,8 @@
 				B0B4AF1A21AE4A3200025E0F /* AddCourseViewController.m */,
 				B0B4AF1C21AE4A5100025E0F /* DeleteCourseViewController.h */,
 				B0B4AF1D21AE4A5100025E0F /* DeleteCourseViewController.m */,
+				B070050021B0239900AD950E /* ClassDetailViewController.h */,
+				B070050121B0239900AD950E /* ClassDetailViewController.m */,
 				718F0BCD21AD8F890032CD26 /* EvenListTableViewController.h */,
 				718F0BCE21AD8F8A0032CD26 /* EvenListTableViewController.m */,
 				718F0BD621AD944E0032CD26 /* EvenAdderViewController.h */,
@@ -233,6 +238,7 @@
 				718F0BD821AD944E0032CD26 /* EvenAdderViewController.m in Sources */,
 				B0CB76F92191D871007B5D49 /* main.m in Sources */,
 				B0B4AF1521AE04FA00025E0F /* EventTableViewCell.m in Sources */,
+				B070050221B0239900AD950E /* ClassDetailViewController.m in Sources */,
 				B0B4AF1821AE4A0100025E0F /* ClassScheduleViewControler.m in Sources */,
 				718F0BCF21AD8F8A0032CD26 /* EvenListTableViewController.m in Sources */,
 				718F0BDE21ADA2150032CD26 /* MapViewController.m in Sources */,
