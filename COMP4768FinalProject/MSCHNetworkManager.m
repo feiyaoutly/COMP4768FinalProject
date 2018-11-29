@@ -15,6 +15,7 @@
 
 @implementation MSCHNetworkManager
 -(void)fetchDataFromServer{
+    NSLog(@"%@",@"request fetch data");
     NSURL *subjectsUrl = [NSURL URLWithString:@"https://storage.googleapis.com/muncomp4768finalproject/subjects.txt"];
     NSError* error;
     NSString *subjectsStr = [NSString stringWithContentsOfURL:subjectsUrl encoding:NSASCIIStringEncoding error:&error];
@@ -60,7 +61,7 @@
             [course setValue:[courseDescriptionArr objectAtIndex:[[courseDescriptionArr objectAtIndex:5] intValue]*3+6] forKey:@"tutorialLocation"];
             
             [[self.courses valueForKey:[subjectsarr objectAtIndex:i]]addObject:course];
-            
+            NSLog(@"%@",@" fetch data done");
             
             
             

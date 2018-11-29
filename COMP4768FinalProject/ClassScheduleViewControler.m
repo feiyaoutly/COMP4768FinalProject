@@ -10,14 +10,218 @@
 
 @interface ClassScheduleViewControler ()
 
+@property (strong,nonatomic) NSMutableArray *allCourses;
+@property (strong,nonatomic) NSMutableArray *selectedCourses;
+@property (strong,nonatomic) MSCHNetworkManager *nm;
+@property (strong,nonatomic) MSCHPersistenceManager *pm;
+
 @end
 
 @implementation ClassScheduleViewControler
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%@%@",@"type of subview", NSStringFromClass([self.view class]));
     // Do any additional setup after loading the view.
     NSLog(@"%@",@"class schedule view controller loaded");
+    self.nm = [[MSCHNetworkManager alloc]init];
+    self.pm = [[MSCHPersistenceManager alloc]init];
+    [self.nm fetchDataFromServer];
+    self.allCourses = [NSMutableArray arrayWithArray:[self.nm getAllCourse]];
+    self.selectedCourses = [NSMutableArray arrayWithArray:[self.pm getSelectedCourses]];
+    
+    //make button for each course
+    for(int i=0;i<[self.selectedCourses count];i++){
+        NSDictionary *thisCourse = [self.selectedCourses objectAtIndex:i];
+        NSString *thisSubject = [thisCourse valueForKey:@"subject"];
+        NSString *thisNumber = [thisCourse valueForKey:@"number"];
+        NSString *thisSection = [thisCourse valueForKey:@"section"];
+        NSDictionary *courseInfo = [self.nm getCourseOfSubject:thisSubject number:thisNumber section:thisSection];
+        NSArray *thisLectures = [courseInfo valueForKey:@"lectures"];
+        
+        for(int j=0;j<[thisLectures count];j++){
+            NSArray *lectureInfo = [thisLectures objectAtIndex:j];
+            NSString *lectureDay = [lectureInfo valueForKey:@"lectureDay"];
+            NSString *lectureTime = [lectureInfo valueForKey:@"lectureTime"];
+            NSString *lectureLocation = [lectureInfo valueForKey:@"lectureLocation"];
+            UIButton *lecture = [UIButton buttonWithType:UIButtonTypeSystem];
+            NSString *buttonTitle = [NSString stringWithFormat:@"%@ %@",thisSubject,thisNumber];
+            buttonTitle = [buttonTitle stringByAppendingString:[NSString stringWithFormat:@"%@%@",@"\r\n",lectureLocation]];
+            [lecture setTitle:buttonTitle forState:UIControlStateNormal];
+            CGFloat xLocation = 0.0;
+            CGFloat yLocation = -200.0;
+            
+            if([lectureDay isEqualToString:@"M"]){
+                xLocation = 150;
+            }
+            else if([lectureDay isEqualToString:@"T"]){
+                xLocation = 250;
+            }
+            else if([lectureDay isEqualToString:@"W"]){
+                xLocation = 350;
+            }
+            else if([lectureDay isEqualToString:@"R"]){
+                xLocation = 450;
+            }
+            else if([lectureDay isEqualToString:@"F"]){
+                xLocation = 550;
+            }
+            NSArray *timeBound = [lectureTime componentsSeparatedByString:@"-"];
+            NSLog(@"%@%@ %@",@"start time and end time are:",[timeBound objectAtIndex:0],[timeBound objectAtIndex: 1]);
+            NSString *startTimeStr = [timeBound objectAtIndex:0];
+            NSArray *startArray = [startTimeStr componentsSeparatedByString:@" "];
+            NSString *ampm = [startArray objectAtIndex:1];
+            NSString *startTime = [startArray objectAtIndex:0];
+            NSArray *timeArray = [startTime componentsSeparatedByString:@":"];
+            NSString *hourStr = [timeArray objectAtIndex:0];
+            NSString *minuteStr = [timeArray objectAtIndex:1];
+            if([ampm isEqualToString:@"pm"]){
+                yLocation=yLocation+480.0;
+            }
+            
+            NSInteger hour = [hourStr integerValue];
+            NSInteger min = [minuteStr integerValue];
+            
+            if(hour!=12){
+                yLocation=yLocation+480.0/12*hour;
+            }
+            yLocation = yLocation+30.0*(min/60.0);
+            
+            lecture.bounds = CGRectMake(0, 0, 100, 50);
+            lecture.center = CGPointMake(xLocation, yLocation);
+            
+            lecture.tag = 9000;
+            
+            [self.view addSubview:lecture];
+        }
+    }
+    
+    CGRect labelLocation = CGRectMake(0, 0, 100, 40);
+    UILabel *mon = [[UILabel alloc]initWithFrame:labelLocation];
+    mon.center=CGPointMake(150, 100);
+    [mon setText:@"Monday"];
+    mon.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:mon];
+    UILabel *tues = [[UILabel alloc]initWithFrame:labelLocation];
+    tues.center=CGPointMake(250, 100);
+    [tues setText:@"Tuesday"];
+    tues.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:tues];
+    UILabel *wed = [[UILabel alloc]initWithFrame:labelLocation];
+    wed.center=CGPointMake(350, 100);
+    [wed setText:@"Wednesday"];
+    wed.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:wed];
+    UILabel *thur = [[UILabel alloc]initWithFrame:labelLocation];
+    thur.center=CGPointMake(450, 100);
+    [thur setText:@"Thursday"];
+    thur.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:thur];
+    UILabel *fri = [[UILabel alloc]initWithFrame:labelLocation];
+    fri.center=CGPointMake(550, 100);
+    [fri setText:@"Friday"];
+    fri.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:fri];
+    for(int i=0;i<4;i++){
+        UILabel *morning = [[UILabel alloc]initWithFrame:labelLocation];
+        morning.center=CGPointMake(50, 120+40*i);
+        [morning setText:[NSString stringWithFormat:@"%i%@ %@",i+8,@":00",@"AM"]];
+        morning.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:morning];
+    }
+    UILabel *noon = [[UILabel alloc]initWithFrame:labelLocation];
+    noon.center=CGPointMake(50, 280);
+    [noon setText:[NSString stringWithFormat:@"%i%@ %@",12,@":00",@"PM"]];
+    noon.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:noon];
+    for(int i=0;i<10;i++){
+        UILabel *afternoon = [[UILabel alloc]initWithFrame:labelLocation];
+        afternoon.center=CGPointMake(50, 320+40*i);
+        [afternoon setText:[NSString stringWithFormat:@"%i%@ %@",i+1,@":00",@"PM"]];
+        afternoon.textAlignment = NSTextAlignmentCenter;
+        [self.view addSubview:afternoon];
+    }
+    
+    
+}
+- (void)viewDidAppear:(BOOL)animated{
+    NSLog(@"%@",@"class schedule appear");
+    NSArray *coursesAfter = [self.pm getSelectedCourses];
+    if([coursesAfter count]!=[self.selectedCourses count]){
+        self.selectedCourses=[NSMutableArray arrayWithArray:coursesAfter];
+        for(UIView *view in [self.view subviews]){
+            if(view.tag==9000){
+                [view removeFromSuperview];
+            }
+            
+            
+        }
+        //make button for each course
+        for(int i=0;i<[self.selectedCourses count];i++){
+            NSDictionary *thisCourse = [self.selectedCourses objectAtIndex:i];
+            NSString *thisSubject = [thisCourse valueForKey:@"subject"];
+            NSString *thisNumber = [thisCourse valueForKey:@"number"];
+            NSString *thisSection = [thisCourse valueForKey:@"section"];
+            NSDictionary *courseInfo = [self.nm getCourseOfSubject:thisSubject number:thisNumber section:thisSection];
+            NSArray *thisLectures = [courseInfo valueForKey:@"lectures"];
+            
+            for(int j=0;j<[thisLectures count];j++){
+                NSArray *lectureInfo = [thisLectures objectAtIndex:j];
+                NSString *lectureDay = [lectureInfo valueForKey:@"lectureDay"];
+                NSString *lectureTime = [lectureInfo valueForKey:@"lectureTime"];
+                NSString *lectureLocation = [lectureInfo valueForKey:@"lectureLocation"];
+                UIButton *lecture = [UIButton buttonWithType:UIButtonTypeSystem];
+                NSString *buttonTitle = [NSString stringWithFormat:@"%@ %@",thisSubject,thisNumber];
+                buttonTitle = [buttonTitle stringByAppendingString:[NSString stringWithFormat:@"%@%@",@"\r\n",lectureLocation]];
+                [lecture setTitle:buttonTitle forState:UIControlStateNormal];
+                CGFloat xLocation = 0.0;
+                CGFloat yLocation = 0.0;
+                
+                if([lectureDay isEqualToString:@"M"]){
+                    xLocation = 50.0;
+                }
+                else if([lectureDay isEqualToString:@"T"]){
+                    xLocation = 150;
+                }
+                else if([lectureDay isEqualToString:@"W"]){
+                    xLocation = 250;
+                }
+                else if([lectureDay isEqualToString:@"R"]){
+                    xLocation = 350;
+                }
+                else if([lectureDay isEqualToString:@"F"]){
+                    xLocation = 450;
+                }
+                NSArray *timeBound = [lectureTime componentsSeparatedByString:@"-"];
+                NSLog(@"%@%@ %@",@"start time and end time are:",[timeBound objectAtIndex:0],[timeBound objectAtIndex: 1]);
+                NSString *startTimeStr = [timeBound objectAtIndex:0];
+                NSArray *startArray = [startTimeStr componentsSeparatedByString:@" "];
+                NSString *ampm = [startArray objectAtIndex:1];
+                NSString *startTime = [startArray objectAtIndex:0];
+                NSArray *timeArray = [startTime componentsSeparatedByString:@":"];
+                NSString *hourStr = [timeArray objectAtIndex:0];
+                NSString *minuteStr = [timeArray objectAtIndex:1];
+                if([ampm isEqualToString:@"pm"]){
+                    yLocation=yLocation+480.0;
+                }
+                
+                NSInteger hour = [hourStr integerValue];
+                NSInteger min = [minuteStr integerValue];
+                
+                if(hour!=12){
+                    yLocation=yLocation+480.0/12*hour;
+                }
+                yLocation = yLocation+30.0*(min/60.0);
+                
+                lecture.bounds = CGRectMake(0, 0, 100, 50);
+                lecture.center = CGPointMake(xLocation, yLocation);
+                lecture.tag=9000;
+                
+                
+                [self.view addSubview:lecture];
+            }
+        }
+    }
 }
 
 

@@ -19,18 +19,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.nm = [[MSCHNetworkManager alloc]init];
-    [self.nm fetchDataFromServer];
+    
     self.pm = [[MSCHPersistenceManager alloc]init];
     
     //testing below 
-    NSArray *courses=[self.nm getALLCourseOfSubject:@"MATH"];
-    NSLog(@"%@%@",@"from main viewcontroller get:",[[courses objectAtIndex:3]valueForKey:@"hasLab"]);
-    NSArray *allCourses=[self.nm getAllCourse];
+    
+
+   
     
     [self.pm initPList];
-    [self.pm saveAllCourses:allCourses];
-    courses = [self.pm getAllCourses];
-    NSLog(@"%@%@",@"from main viewcontroller get:",[[courses objectAtIndex:0]valueForKey:@"subject"]);
     
     
 }
