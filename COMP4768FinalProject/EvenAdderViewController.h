@@ -9,9 +9,17 @@
 #import "ViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface EvenAdderViewController : UIViewController
+@protocol AddEventViewControllerDelegate <NSObject>
+-(void)notifyPresentingViewControllerDone:(BOOL)finished;
+@end
+@interface EvenAdderViewController : UIViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDataSource>
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UITextField *titleInput;
+@property (weak, nonatomic) IBOutlet UITextView *noteInput;
+@property (weak, nonatomic) IBOutlet UIPickerView *coursePicker;
+@property (strong,nonatomic) NSMutableArray *selectedCourses;
+
+@property id<AddEventViewControllerDelegate> delegate;
 - (IBAction)addPress:(id)sender;
 
 @end

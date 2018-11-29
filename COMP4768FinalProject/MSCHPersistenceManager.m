@@ -145,7 +145,7 @@
     
     
     for(int i=0;i<[currentEvents count];i++){
-        if([[[currentEvents objectAtIndex:i] valueForKey:@"subject"] isEqualToString:[event valueForKey:@"subject"]] && [[[currentEvents objectAtIndex:i] valueForKey:@"number"] isEqualToString:[event valueForKey:@"number"]] && [[[currentEvents objectAtIndex:i] valueForKey:@"section"] isEqualToString:[event valueForKey:@"section"]] && [[[currentEvents objectAtIndex:i] valueForKey:@"name"] isEqualToString:[event valueForKey:@"name"]])
+        if([[[currentEvents objectAtIndex:i] valueForKey:@"subject"] isEqualToString:[event valueForKey:@"subject"]] && [[[currentEvents objectAtIndex:i] valueForKey:@"number"] isEqualToString:[event valueForKey:@"number"]] && [[[currentEvents objectAtIndex:i] valueForKey:@"section"] isEqualToString:[event valueForKey:@"section"]] && [[[currentEvents objectAtIndex:i] valueForKey:@"title"] isEqualToString:[event valueForKey:@"title"]])
         {
             return NO;
         }
@@ -177,7 +177,7 @@
     NSMutableArray *currentEvents = [NSMutableArray arrayWithArray:[self getAddedEvent]];
     
     for(int i=0;i<[currentEvents count];i++){
-        if([[[currentEvents objectAtIndex:i] valueForKey:@"subject"] isEqualToString:subject] && [[[currentEvents objectAtIndex:i] valueForKey:@"number"] isEqualToString:number] && [[[currentEvents objectAtIndex:i] valueForKey:@"section"] isEqualToString:section] && [[[currentEvents objectAtIndex:i] valueForKey:@"name"] isEqualToString:name]){
+        if([[[currentEvents objectAtIndex:i] valueForKey:@"subject"] isEqualToString:subject] && [[[currentEvents objectAtIndex:i] valueForKey:@"number"] isEqualToString:number] && [[[currentEvents objectAtIndex:i] valueForKey:@"section"] isEqualToString:section] && [[[currentEvents objectAtIndex:i] valueForKey:@"title"] isEqualToString:name]){
             [currentEvents removeObjectAtIndex:i];
             [self saveAddedEvent:currentEvents];
             return YES;

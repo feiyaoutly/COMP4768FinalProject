@@ -35,7 +35,7 @@
                     <navigationItem key="navigationItem" id="NZY-8X-0LG">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="rD7-e6-FBh">
                             <connections>
-                                <segue destination="NIr-aZ-4t2" kind="show" id="bBf-TM-hIW"/>
+                                <segue destination="NIr-aZ-4t2" kind="show" identifier="addEvent" id="bBf-TM-hIW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -53,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXG-To-BRc">
-                                <rect key="frame" x="169.5" y="552" width="36" height="36"/>
+                                <rect key="frame" x="169.5" y="562" width="36" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Add"/>
                                 <connections>
@@ -80,7 +80,7 @@
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r78-wG-1E8">
-                                <rect key="frame" x="15" y="476" width="48.5" height="28"/>
+                                <rect key="frame" x="15" y="472" width="48.5" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -92,8 +92,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Note For This Event" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wmz-Ox-xLJ">
-                                <rect key="frame" x="78.5" y="476" width="281.5" height="66"/>
+                                <rect key="frame" x="78.5" y="472" width="281.5" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ZOn-VN-AHZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -107,10 +110,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Q7W-aA-g76" firstAttribute="top" secondItem="6Cb-SL-wfU" secondAttribute="top" constant="30" id="1hm-ng-gIt"/>
                             <constraint firstItem="wmz-Ox-xLJ" firstAttribute="trailing" secondItem="AdV-Jb-nSs" secondAttribute="trailing" id="5zZ-F9-wS3"/>
                             <constraint firstItem="dHr-5W-xkS" firstAttribute="height" secondItem="MZV-le-srD" secondAttribute="height" id="66g-m2-dt0"/>
+                            <constraint firstItem="6Cb-SL-wfU" firstAttribute="bottom" secondItem="wXG-To-BRc" secondAttribute="bottom" constant="20" id="8XX-WY-6C4"/>
                             <constraint firstItem="MZV-le-srD" firstAttribute="top" secondItem="Q7W-aA-g76" secondAttribute="bottom" constant="10" id="ByI-V2-UFL"/>
+                            <constraint firstItem="wmz-Ox-xLJ" firstAttribute="top" secondItem="l5H-hL-y0t" secondAttribute="bottom" constant="20" id="F2o-cd-Sau"/>
                             <constraint firstItem="wmz-Ox-xLJ" firstAttribute="leading" secondItem="AdV-Jb-nSs" secondAttribute="leading" id="FK6-kH-K37"/>
                             <constraint firstItem="Q7W-aA-g76" firstAttribute="trailing" secondItem="6Cb-SL-wfU" secondAttribute="trailing" id="I7u-GX-uxW"/>
                             <constraint firstItem="l5H-hL-y0t" firstAttribute="centerY" secondItem="dHr-5W-xkS" secondAttribute="centerY" id="JbW-C1-oj3"/>
@@ -119,14 +123,12 @@
                             <constraint firstItem="AdV-Jb-nSs" firstAttribute="leading" secondItem="MZV-le-srD" secondAttribute="trailing" constant="15" id="Wnv-G4-Ft3"/>
                             <constraint firstItem="wmz-Ox-xLJ" firstAttribute="top" secondItem="r78-wG-1E8" secondAttribute="top" id="bkW-Y9-kW2"/>
                             <constraint firstItem="Q7W-aA-g76" firstAttribute="leading" secondItem="6Cb-SL-wfU" secondAttribute="leading" id="dqE-g8-htQ"/>
-                            <constraint firstItem="r78-wG-1E8" firstAttribute="top" secondItem="dHr-5W-xkS" secondAttribute="bottom" constant="50" id="eJZ-42-9fR"/>
                             <constraint firstItem="MZV-le-srD" firstAttribute="top" secondItem="AdV-Jb-nSs" secondAttribute="top" id="egV-ED-xrH"/>
                             <constraint firstItem="r78-wG-1E8" firstAttribute="leading" secondItem="MZV-le-srD" secondAttribute="leading" id="ffU-9i-BfZ"/>
                             <constraint firstItem="dHr-5W-xkS" firstAttribute="leading" secondItem="MZV-le-srD" secondAttribute="leading" id="foz-bD-fDh"/>
                             <constraint firstItem="l5H-hL-y0t" firstAttribute="trailing" secondItem="AdV-Jb-nSs" secondAttribute="trailing" id="h8C-U2-3K1"/>
                             <constraint firstItem="MZV-le-srD" firstAttribute="leading" secondItem="6Cb-SL-wfU" secondAttribute="leading" constant="15" id="hTb-vl-dHN"/>
                             <constraint firstItem="dHr-5W-xkS" firstAttribute="width" secondItem="MZV-le-srD" secondAttribute="width" id="hze-Gb-H6G"/>
-                            <constraint firstItem="6Cb-SL-wfU" firstAttribute="bottom" secondItem="wXG-To-BRc" secondAttribute="bottom" constant="30" id="mVU-aT-bFk"/>
                             <constraint firstItem="l5H-hL-y0t" firstAttribute="leading" secondItem="AdV-Jb-nSs" secondAttribute="leading" id="qCp-jb-Pzf"/>
                             <constraint firstItem="6Cb-SL-wfU" firstAttribute="trailing" secondItem="AdV-Jb-nSs" secondAttribute="trailing" constant="15" id="r0x-C4-C9a"/>
                             <constraint firstItem="wXG-To-BRc" firstAttribute="centerX" secondItem="wrb-B0-5HQ" secondAttribute="centerX" id="uRU-n2-fh6"/>
@@ -136,7 +138,10 @@
                         <viewLayoutGuide key="safeArea" id="6Cb-SL-wfU"/>
                     </view>
                     <connections>
+                        <outlet property="coursePicker" destination="l5H-hL-y0t" id="zZq-0g-lPC"/>
                         <outlet property="datePicker" destination="Q7W-aA-g76" id="VVQ-WX-o0J"/>
+                        <outlet property="noteInput" destination="wmz-Ox-xLJ" id="fEU-WT-0k5"/>
+                        <outlet property="titleInput" destination="AdV-Jb-nSs" id="poB-cM-XBT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ljo-yA-qkI" userLabel="First Responder" sceneMemberID="firstResponder"/>
