@@ -422,17 +422,10 @@
         <scene sceneID="PPo-6U-5gR">
             <objects>
                 <viewController id="f9q-Q7-Hnc" customClass="ClassScheduleViewControler" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Rl1-EH-iVV" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="Rl1-EH-iVV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="haha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PY0-C9-I00">
-                                <rect key="frame" x="166" y="260" width="38" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="og1-2Y-WbE">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -461,15 +454,22 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="opb-RH-mcm">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IDp-IT-PPy"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Class Schedule" id="6s0-c2-8iF"/>
+                    <connections>
+                        <outlet property="scrollView" destination="opb-RH-mcm" id="ASF-f5-YXm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcI-8o-1he" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-298" y="-511"/>
+            <point key="canvasLocation" x="-298.39999999999998" y="-511.39430284857576"/>
         </scene>
         <!--Add Course View Controller-->
         <scene sceneID="Bpk-Pk-LuM">

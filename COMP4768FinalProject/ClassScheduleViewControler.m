@@ -14,6 +14,7 @@
 @property (strong,nonatomic) NSMutableArray *selectedCourses;
 @property (strong,nonatomic) MSCHNetworkManager *nm;
 @property (strong,nonatomic) MSCHPersistenceManager *pm;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -21,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@%@",@"type of subview", NSStringFromClass([self.view class]));
+    NSLog(@"%@%@",@"type of subview", NSStringFromClass([self.scrollView class]));
     // Do any additional setup after loading the view.
     NSLog(@"%@",@"class schedule view controller loaded");
     self.nm = [[MSCHNetworkManager alloc]init];
@@ -29,6 +30,7 @@
     [self.nm fetchDataFromServer];
     self.allCourses = [NSMutableArray arrayWithArray:[self.nm getAllCourse]];
     self.selectedCourses = [NSMutableArray arrayWithArray:[self.pm getSelectedCourses]];
+    [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width*1.6, self.view.frame.size.height*1.1)];
     
     //make button for each course
     for(int i=0;i<[self.selectedCourses count];i++){
@@ -49,7 +51,7 @@
             buttonTitle = [buttonTitle stringByAppendingString:[NSString stringWithFormat:@"%@%@",@"\r\n",lectureLocation]];
             [lecture setTitle:buttonTitle forState:UIControlStateNormal];
             CGFloat xLocation = 0.0;
-            CGFloat yLocation = -200.0;
+            CGFloat yLocation = -280.0;
             
             if([lectureDay isEqualToString:@"M"]){
                 xLocation = 150;
@@ -92,54 +94,54 @@
             
             lecture.tag = 9000;
             
-            [self.view addSubview:lecture];
+            [self.scrollView addSubview:lecture];
         }
     }
     
     CGRect labelLocation = CGRectMake(0, 0, 100, 40);
     UILabel *mon = [[UILabel alloc]initWithFrame:labelLocation];
-    mon.center=CGPointMake(150, 100);
+    mon.center=CGPointMake(150, 20);
     [mon setText:@"Monday"];
     mon.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:mon];
+    [self.scrollView addSubview:mon];
     UILabel *tues = [[UILabel alloc]initWithFrame:labelLocation];
-    tues.center=CGPointMake(250, 100);
+    tues.center=CGPointMake(250, 20);
     [tues setText:@"Tuesday"];
     tues.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:tues];
+    [self.scrollView addSubview:tues];
     UILabel *wed = [[UILabel alloc]initWithFrame:labelLocation];
-    wed.center=CGPointMake(350, 100);
+    wed.center=CGPointMake(350, 20);
     [wed setText:@"Wednesday"];
     wed.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:wed];
+    [self.scrollView addSubview:wed];
     UILabel *thur = [[UILabel alloc]initWithFrame:labelLocation];
-    thur.center=CGPointMake(450, 100);
+    thur.center=CGPointMake(450, 20);
     [thur setText:@"Thursday"];
     thur.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:thur];
+    [self.scrollView addSubview:thur];
     UILabel *fri = [[UILabel alloc]initWithFrame:labelLocation];
-    fri.center=CGPointMake(550, 100);
+    fri.center=CGPointMake(550, 20);
     [fri setText:@"Friday"];
     fri.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:fri];
+    [self.scrollView addSubview:fri];
     for(int i=0;i<4;i++){
         UILabel *morning = [[UILabel alloc]initWithFrame:labelLocation];
-        morning.center=CGPointMake(50, 120+40*i);
+        morning.center=CGPointMake(50, 40+40*i);
         [morning setText:[NSString stringWithFormat:@"%i%@ %@",i+8,@":00",@"AM"]];
         morning.textAlignment = NSTextAlignmentCenter;
-        [self.view addSubview:morning];
+        [self.scrollView addSubview:morning];
     }
     UILabel *noon = [[UILabel alloc]initWithFrame:labelLocation];
-    noon.center=CGPointMake(50, 280);
+    noon.center=CGPointMake(50, 200);
     [noon setText:[NSString stringWithFormat:@"%i%@ %@",12,@":00",@"PM"]];
     noon.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:noon];
+    [self.scrollView addSubview:noon];
     for(int i=0;i<10;i++){
         UILabel *afternoon = [[UILabel alloc]initWithFrame:labelLocation];
-        afternoon.center=CGPointMake(50, 320+40*i);
+        afternoon.center=CGPointMake(50, 240+40*i);
         [afternoon setText:[NSString stringWithFormat:@"%i%@ %@",i+1,@":00",@"PM"]];
         afternoon.textAlignment = NSTextAlignmentCenter;
-        [self.view addSubview:afternoon];
+        [self.scrollView addSubview:afternoon];
     }
     
     
@@ -149,7 +151,7 @@
     NSArray *coursesAfter = [self.pm getSelectedCourses];
     if([coursesAfter count]!=[self.selectedCourses count]){
         self.selectedCourses=[NSMutableArray arrayWithArray:coursesAfter];
-        for(UIView *view in [self.view subviews]){
+        for(UIView *view in [self.scrollView subviews]){
             if(view.tag==9000){
                 [view removeFromSuperview];
             }
@@ -175,22 +177,22 @@
                 buttonTitle = [buttonTitle stringByAppendingString:[NSString stringWithFormat:@"%@%@",@"\r\n",lectureLocation]];
                 [lecture setTitle:buttonTitle forState:UIControlStateNormal];
                 CGFloat xLocation = 0.0;
-                CGFloat yLocation = 0.0;
+                CGFloat yLocation = -280.0;
                 
                 if([lectureDay isEqualToString:@"M"]){
-                    xLocation = 50.0;
-                }
-                else if([lectureDay isEqualToString:@"T"]){
                     xLocation = 150;
                 }
-                else if([lectureDay isEqualToString:@"W"]){
+                else if([lectureDay isEqualToString:@"T"]){
                     xLocation = 250;
                 }
-                else if([lectureDay isEqualToString:@"R"]){
+                else if([lectureDay isEqualToString:@"W"]){
                     xLocation = 350;
                 }
-                else if([lectureDay isEqualToString:@"F"]){
+                else if([lectureDay isEqualToString:@"R"]){
                     xLocation = 450;
+                }
+                else if([lectureDay isEqualToString:@"F"]){
+                    xLocation = 550;
                 }
                 NSArray *timeBound = [lectureTime componentsSeparatedByString:@"-"];
                 NSLog(@"%@%@ %@",@"start time and end time are:",[timeBound objectAtIndex:0],[timeBound objectAtIndex: 1]);
@@ -215,10 +217,10 @@
                 
                 lecture.bounds = CGRectMake(0, 0, 100, 50);
                 lecture.center = CGPointMake(xLocation, yLocation);
-                lecture.tag=9000;
                 
+                lecture.tag = 9000;
                 
-                [self.view addSubview:lecture];
+                [self.scrollView addSubview:lecture];
             }
         }
     }
