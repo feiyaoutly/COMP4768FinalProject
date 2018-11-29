@@ -10,7 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EventTableViewCell : UIScrollView
+@interface EventTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *courseTitle;
+@property (weak, nonatomic) IBOutlet UILabel *eventTitle;
+@property (weak, nonatomic) IBOutlet UILabel *eventDate;
+@property (weak, nonatomic) IBOutlet UILabel *eventTime;
+-(void) updateCellWithCourseTitle:(NSString *)courseTitle eventTitle:(NSString *)eventTitle eventDate:(NSString *)eventDate eventTime:(NSString *)eventTime;
 
 @end
 

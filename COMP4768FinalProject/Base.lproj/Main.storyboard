@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Even List Table View Controller-->
+        <!--Events-->
         <scene sceneID="LqL-VR-5DG">
             <objects>
                 <tableViewController id="rAA-wk-Rj5" customClass="EvenListTableViewController" sceneMemberID="viewController">
@@ -18,13 +18,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6a7-TE-h8T">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="95" id="6a7-TE-h8T" customClass="EventTableViewCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="95"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6a7-TE-h8T" id="HSo-Ao-Dki">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Si-xS-Pfa">
+                                            <rect key="frame" x="16" y="11" width="120" height="26.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rey-eO-ILZ">
+                                            <rect key="frame" x="16" y="47.5" width="120" height="26.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yyyy-mm-dd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bR-3D-mmY">
+                                            <rect key="frame" x="228" y="11" width="131" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hh:MM aa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQQ-8Y-c2b">
+                                            <rect key="frame" x="228" y="49" width="131" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="1bR-3D-mmY" firstAttribute="top" secondItem="HSo-Ao-Dki" secondAttribute="topMargin" id="12b-If-MeH"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="1bR-3D-mmY" secondAttribute="trailing" id="39u-Og-5sk"/>
+                                        <constraint firstItem="4Si-xS-Pfa" firstAttribute="top" secondItem="HSo-Ao-Dki" secondAttribute="topMargin" id="4iv-qb-3BF"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="rey-eO-ILZ" secondAttribute="bottom" constant="10" id="67O-Oa-9ia"/>
+                                        <constraint firstItem="uQQ-8Y-c2b" firstAttribute="top" secondItem="1bR-3D-mmY" secondAttribute="bottom" constant="10" id="77m-8b-U4o"/>
+                                        <constraint firstItem="1bR-3D-mmY" firstAttribute="height" secondItem="uQQ-8Y-c2b" secondAttribute="height" id="Awc-Pq-X5x"/>
+                                        <constraint firstItem="4Si-xS-Pfa" firstAttribute="leading" secondItem="HSo-Ao-Dki" secondAttribute="leadingMargin" id="J7v-1Y-vhp"/>
+                                        <constraint firstItem="1bR-3D-mmY" firstAttribute="width" secondItem="uQQ-8Y-c2b" secondAttribute="width" id="Lbx-kT-mJH"/>
+                                        <constraint firstItem="rey-eO-ILZ" firstAttribute="centerX" secondItem="4Si-xS-Pfa" secondAttribute="centerX" id="ZGi-GD-80C"/>
+                                        <constraint firstItem="rey-eO-ILZ" firstAttribute="height" secondItem="4Si-xS-Pfa" secondAttribute="height" id="hD4-AR-ugw"/>
+                                        <constraint firstItem="rey-eO-ILZ" firstAttribute="width" secondItem="4Si-xS-Pfa" secondAttribute="width" id="kMk-QN-Zdy"/>
+                                        <constraint firstItem="1bR-3D-mmY" firstAttribute="leading" secondItem="uQQ-8Y-c2b" secondAttribute="leading" id="qZG-y4-2e7"/>
+                                        <constraint firstItem="1bR-3D-mmY" firstAttribute="centerX" secondItem="uQQ-8Y-c2b" secondAttribute="centerX" id="zDa-qq-0DV"/>
+                                        <constraint firstItem="rey-eO-ILZ" firstAttribute="top" secondItem="4Si-xS-Pfa" secondAttribute="bottom" constant="10" id="zz6-YG-Kx0"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="courseTitle" destination="4Si-xS-Pfa" id="wCi-yj-2BC"/>
+                                    <outlet property="eventDate" destination="1bR-3D-mmY" id="D5k-ug-ekG"/>
+                                    <outlet property="eventTime" destination="uQQ-8Y-c2b" id="od5-CN-f3C"/>
+                                    <outlet property="eventTitle" destination="rey-eO-ILZ" id="j2Z-ZJ-oWY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -32,7 +80,7 @@
                             <outlet property="delegate" destination="rAA-wk-Rj5" id="xhl-CH-4Ai"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="NZY-8X-0LG">
+                    <navigationItem key="navigationItem" title="Events" id="NZY-8X-0LG">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="rD7-e6-FBh">
                             <connections>
                                 <segue destination="NIr-aZ-4t2" kind="show" identifier="addEvent" id="bBf-TM-hIW"/>
@@ -42,7 +90,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIt-4N-lY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204" y="793"/>
+            <point key="canvasLocation" x="-204" y="792.95352323838085"/>
         </scene>
         <!--Even Adder View Controller-->
         <scene sceneID="F0I-Xf-IZz">

@@ -20,7 +20,8 @@
     [super viewDidLoad];
     NSLog(@"%@",@"event list view controller loaded");
     self.pm = [[MSCHPersistenceManager alloc]init];
-    self.events = [self.pm getAddedEvent];
+    self.events = [NSMutableArray arrayWithArray:[self.pm getAddedEvent]];
+    int num = [self.events count];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -33,12 +34,38 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-   return 1;
+    
+    int num = [self.events count];
+   return [self.events count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 85;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    EventTableViewCell *eventCell =[tableView dequeueReusableCellWithIdentifier:@"eventCell" forIndexPath:indexPath];
+    NSMutableDictionary *event = [self.events objectAtIndex:indexPath.row];
+    if(eventCell==nil){
+        eventCell = [[EventTableViewCell alloc] init];
+        
+        
+    }
+    //call method to setup the cell with passed in arguments
+    NSString *courseTitle = [NSString stringWithFormat:@"%@ %@",[event valueForKey:@"subject"],[event valueForKey:@"number"]];
+    NSString *eventTitle = [event valueForKey:@"title"];
+    NSString *eventDateAndTime = [event valueForKey:@"date"];
+    NSArray *eventDateTime = [eventDateAndTime componentsSeparatedByString:@" "];
+    NSString *eventDate = [eventDateTime objectAtIndex:0];
+    NSString *eventTime = [eventDateTime objectAtIndex:1];
+    
+    [eventCell updateCellWithCourseTitle:courseTitle eventTitle:eventTitle eventDate:eventDate eventTime:eventTime];
+    
+    return eventCell;
 }
 -(void)notifyPresentingViewControllerDone:(BOOL)finished{
     
@@ -47,7 +74,7 @@
     NSString *eventNote = self.addEventVC.noteInput.text;
     NSDictionary *course = [self.addEventVC.selectedCourses objectAtIndex:[self.addEventVC.coursePicker selectedRowInComponent:0]];
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"yyyy-MM-dd hh:mm a"];
+    [formatter setDateFormat:@"yyyy-MM-dd hh:mm-a"];
     NSString *dateString = [formatter stringFromDate:eventDate];
     NSMutableDictionary *event = [[NSMutableDictionary alloc]init];
     [event setValue:[course valueForKey:@"subject"] forKey:@"subject"];

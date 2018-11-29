@@ -17,5 +17,21 @@
     // Drawing code
 }
 */
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+-(void)updateCellWithCourseTitle:(NSString *)courseTitle eventTitle:(NSString *)eventTitle eventDate:(NSString *)eventDate eventTime:(NSString *)eventTime{
+    self.courseTitle.text=courseTitle;
+    self.eventTitle.text=eventTitle;
+    self.eventDate.text=eventDate;
+    self.eventTime.text=eventTime;
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    // Configure the view for the selected state
+}
 
 @end
