@@ -29,7 +29,10 @@
     
     // Do any additional setup after loading the view.
 }
-- (IBAction)deleteButtonTapped:(id)sender {
+- (IBAction)deleteButtonTapped:(id)sender
+{
+    [self.delegate removeEvent:self.row];
+    
 }
 
 /*

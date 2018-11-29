@@ -92,7 +92,17 @@
 }
 - (void)removeEvent:(NSInteger)row
 {
-    
+    NSDictionary *event = [self.events objectAtIndex:row];
+    NSString *subject = [event valueForKey:@"subject"];
+    NSString *number = [event valueForKey:@"number"];
+    NSString *section = [event valueForKey:@"section"];
+    NSString *title = [event valueForKey:@"title"];
+    [self.pm removeEventByCourseSubject:subject courseNumber:number courseSection:section eventName:title];
+    [self.events removeObjectAtIndex:row];
+    [self.tableView reloadData];
+    UINavigationController *navCon = (UINavigationController*)self.parentViewController;
+    //return to the root tableview controller
+    [navCon popToRootViewControllerAnimated:YES];
 }
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -155,7 +165,7 @@
         EventDetailViewController *detailView=[segue destinationViewController];//get the destination controller
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];//get the index of selected cell
         detailView.event = [self.events objectAtIndex:indexPath.row];
-        
+        detailView.delegate=self;
         detailView.row=indexPath.row;
         NSLog(@"%@",@"event detail sugue repared");
         
