@@ -72,6 +72,7 @@
                                     <outlet property="eventDate" destination="1bR-3D-mmY" id="D5k-ug-ekG"/>
                                     <outlet property="eventTime" destination="uQQ-8Y-c2b" id="od5-CN-f3C"/>
                                     <outlet property="eventTitle" destination="rey-eO-ILZ" id="j2Z-ZJ-oWY"/>
+                                    <segue destination="84P-Fv-1e9" kind="show" identifier="eventDetail" id="fWu-Yw-6ho"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -194,7 +195,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ljo-yA-qkI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="792.95352323838085"/>
+            <point key="canvasLocation" x="1020" y="793"/>
+        </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="ubu-19-yHD">
+            <objects>
+                <viewController id="84P-Fv-1e9" customClass="EventDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hGO-IN-N6w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="1EF-qL-6Vz"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="15O-ih-6IJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="404" y="1751"/>
         </scene>
         <!--Navigation Map-->
         <scene sceneID="SMU-02-5wX">
