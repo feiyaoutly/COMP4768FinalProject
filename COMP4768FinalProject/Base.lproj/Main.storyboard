@@ -204,7 +204,61 @@
                     <view key="view" contentMode="scaleToFill" id="hGO-IN-N6w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="r1o-av-jYs">
+                                <rect key="frame" x="50" y="114" width="275" height="27.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Urm-sY-kPG">
+                                <rect key="frame" x="50" y="191.5" width="275" height="27.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mon-fi-zxX">
+                                <rect key="frame" x="50" y="269" width="275" height="27.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lor" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YaA-i7-HHS">
+                                <rect key="frame" x="30" y="346.5" width="315" height="151.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzA-Vl-kjU">
+                                <rect key="frame" x="155" y="548" width="65" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Delete"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PzA-Vl-kjU" firstAttribute="centerX" secondItem="hGO-IN-N6w" secondAttribute="centerX" id="5wR-B9-kds"/>
+                            <constraint firstItem="1EF-qL-6Vz" firstAttribute="trailing" secondItem="r1o-av-jYs" secondAttribute="trailing" constant="50" id="6zf-zw-hPf"/>
+                            <constraint firstItem="r1o-av-jYs" firstAttribute="leading" secondItem="1EF-qL-6Vz" secondAttribute="leading" constant="50" id="Apj-8J-Rlb"/>
+                            <constraint firstItem="Urm-sY-kPG" firstAttribute="leading" secondItem="r1o-av-jYs" secondAttribute="leading" id="J0f-Pa-PNq"/>
+                            <constraint firstItem="PzA-Vl-kjU" firstAttribute="top" secondItem="YaA-i7-HHS" secondAttribute="bottom" constant="50" id="LYB-Vc-B4T"/>
+                            <constraint firstItem="1EF-qL-6Vz" firstAttribute="bottom" secondItem="PzA-Vl-kjU" secondAttribute="bottom" constant="30" id="O6G-Tx-vF5"/>
+                            <constraint firstItem="Urm-sY-kPG" firstAttribute="top" secondItem="r1o-av-jYs" secondAttribute="bottom" constant="50" id="RsL-4A-KwH"/>
+                            <constraint firstItem="YaA-i7-HHS" firstAttribute="leading" secondItem="1EF-qL-6Vz" secondAttribute="leading" constant="30" id="Xdv-6H-MLo"/>
+                            <constraint firstItem="1EF-qL-6Vz" firstAttribute="trailing" secondItem="YaA-i7-HHS" secondAttribute="trailing" constant="30" id="bBm-rP-aJV"/>
+                            <constraint firstItem="YaA-i7-HHS" firstAttribute="top" secondItem="Mon-fi-zxX" secondAttribute="bottom" constant="50" id="bf6-pL-3AD"/>
+                            <constraint firstItem="r1o-av-jYs" firstAttribute="top" secondItem="1EF-qL-6Vz" secondAttribute="top" constant="50" id="eQ1-AE-dEU"/>
+                            <constraint firstItem="Mon-fi-zxX" firstAttribute="width" secondItem="r1o-av-jYs" secondAttribute="width" id="eab-Q7-KV2"/>
+                            <constraint firstItem="Mon-fi-zxX" firstAttribute="leading" secondItem="r1o-av-jYs" secondAttribute="leading" id="f0z-fn-FQk"/>
+                            <constraint firstItem="Urm-sY-kPG" firstAttribute="width" secondItem="r1o-av-jYs" secondAttribute="width" id="hJ7-Q2-Ide"/>
+                            <constraint firstItem="Urm-sY-kPG" firstAttribute="height" secondItem="r1o-av-jYs" secondAttribute="height" id="hbF-aX-s7l"/>
+                            <constraint firstItem="Mon-fi-zxX" firstAttribute="height" secondItem="r1o-av-jYs" secondAttribute="height" id="p0Z-ML-r2g"/>
+                            <constraint firstItem="Mon-fi-zxX" firstAttribute="top" secondItem="Urm-sY-kPG" secondAttribute="bottom" constant="50" id="vWp-2Y-laR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="1EF-qL-6Vz"/>
                     </view>
                 </viewController>
