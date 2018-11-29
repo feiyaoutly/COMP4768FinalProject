@@ -237,6 +237,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="84P-Fv-1e9" eventType="touchUpInside" id="zx6-Ic-Mis"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -261,6 +264,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1EF-qL-6Vz"/>
                     </view>
+                    <connections>
+                        <outlet property="courseLabel" destination="r1o-av-jYs" id="HTb-ed-SyX"/>
+                        <outlet property="dueDateLabel" destination="Mon-fi-zxX" id="BOu-0s-fpA"/>
+                        <outlet property="eventLabel" destination="Urm-sY-kPG" id="Dmj-SA-RLW"/>
+                        <outlet property="noteTextView" destination="YaA-i7-HHS" id="sw2-Qe-4ug"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="15O-ih-6IJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

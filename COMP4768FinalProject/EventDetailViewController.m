@@ -16,7 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString *course = [NSString stringWithFormat:@"%@ %@",[self.event valueForKey:@"subject"],[self.event valueForKey:@"number"]];
+    NSString *title = [self.event valueForKey:@"title"];
+    NSString *date = [self.event valueForKey:@"date"];
+    NSString *note = [self.event valueForKey:@"note"];
+    
+    self.courseLabel.text=course;
+    self.eventLabel.text=title;
+    self.dueDateLabel.text=date;
+    self.noteTextView.text=note;
+    
+    
     // Do any additional setup after loading the view.
+}
+- (IBAction)deleteButtonTapped:(id)sender {
 }
 
 /*

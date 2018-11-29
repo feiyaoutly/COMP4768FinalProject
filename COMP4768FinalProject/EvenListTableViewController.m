@@ -90,6 +90,10 @@
     //return to the root tableview controller
     [navCon popToRootViewControllerAnimated:YES];
 }
+- (void)removeEvent:(NSInteger)row
+{
+    
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
@@ -141,9 +145,20 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([[segue identifier] isEqualToString:@"addEvent"]){
+    if([[segue identifier] isEqualToString:@"addEvent"])
+    {
         self.addEventVC = [segue destinationViewController];
         self.addEventVC.delegate=self;
+    }
+    else if([[segue identifier] isEqualToString:@"eventDetail"])
+    {
+        EventDetailViewController *detailView=[segue destinationViewController];//get the destination controller
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];//get the index of selected cell
+        detailView.event = [self.events objectAtIndex:indexPath.row];
+        
+        detailView.row=indexPath.row;
+        NSLog(@"%@",@"event detail sugue repared");
+        
     }
 }
 

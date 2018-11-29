@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "EventTableViewCell.h"
 #import "EvenAdderViewController.h"
+#import "EventDetailViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EvenListTableViewController : UITableViewController<AddEventViewControllerDelegate>
+@interface EvenListTableViewController : UITableViewController<AddEventViewControllerDelegate,DeleteEventDelegate>
 
 @end
 
