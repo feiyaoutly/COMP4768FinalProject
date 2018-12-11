@@ -92,15 +92,7 @@
     return _locationManager;
 }
 
-#pragma mark -locationManager delegate
-//- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-//{
-//    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
-//        [manager startUpdatingLocation];
-//    }
-//}
 
-#pragma mark 跟踪定位代理方法，每次位置发生变化即会执行（只要定位到相应位置）
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *location = [locations lastObject];

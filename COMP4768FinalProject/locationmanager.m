@@ -64,10 +64,7 @@
 #pragma mark - calculate the distance through coordinate
 -(double) LantitudeLongitudeDist:(double)lon1 other_Lat:(double)lat1 self_Lon:(double)lon2 self_Lat:(double)lat2
 {
-    double er = 6378137; // 6378700.0f;
-    //ave. radius = 6371.315 (someone said more accurate is 6366.707)
-    //equatorial radius = 6378.388
-    //nautical mile = 1.15078
+    double er = 6378137; 
     double radlat1 = PI*lat1/180.0f;
     double radlat2 = PI*lat2/180.0f;
     //now long.
