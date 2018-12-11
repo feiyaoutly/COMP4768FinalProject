@@ -79,6 +79,37 @@
     NSArray *allCourses = [NSArray arrayWithContentsOfURL:url];
     return allCourses;
 }
+- (NSArray *)getAllCoursesOfSubject:(NSString *)subject{
+    NSMutableArray *courses = [[NSMutableArray alloc]init];
+    NSArray *allCourses=[self getAllCourses];
+    for(int i=0;i<[allCourses count];i++){
+        if([[[allCourses objectAtIndex:i] valueForKey:@"subject"] isEqualToString:subject]){
+            [courses addObject:[allCourses objectAtIndex:i]];
+        }
+    }
+    
+    return courses;
+}
+
+- (NSArray *)getAllCoursesOfSubject:(NSString *)subject Number:(NSString *)number{
+    NSMutableArray *courses = [[NSMutableArray alloc]init];
+    NSArray *coursesubject = [self getAllCoursesOfSubject:subject];
+    for(int i=0;i<[coursesubject count];i++){
+        if([[[coursesubject objectAtIndex:i] valueForKey:@"number"] isEqualToString:number]){
+            [courses addObject:[coursesubject objectAtIndex:i]];
+        }
+    }
+    return courses;
+}
+- (NSDictionary *)getCourseInfoOfSubject:(NSString *)subject Number:(NSString *)number Section:(NSString *)section{
+    NSArray *from = [self getAllCoursesOfSubject:subject Number:number];
+    for(int i=0;i<[from count];i++){
+        if([[[from objectAtIndex:i] valueForKey:@"section"] isEqualToString:section]){
+            return [from objectAtIndex:i];
+        }
+    }
+    return nil;
+}
 
 -(void)saveSelectedCourses:(NSArray *)selectedCouses{
     NSFileManager *fm = [NSFileManager new];

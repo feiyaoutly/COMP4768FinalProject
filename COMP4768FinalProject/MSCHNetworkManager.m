@@ -67,7 +67,12 @@
             
         }
     }
-    
+    MSCHPersistenceManager *pm = [[MSCHPersistenceManager alloc]init];
+    NSMutableArray *allcourses = [[NSMutableArray alloc]init];
+    for(int i=0;i<[self.subjects count];i++){
+        [allcourses addObjectsFromArray:[self.courses valueForKey:[self.subjects objectAtIndex:i]]];
+    }
+    [pm saveAllCourses:allcourses];
 }
 
 -(NSArray *) getAllSubjects{

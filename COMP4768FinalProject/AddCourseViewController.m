@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *numberPicker;
 @property (weak, nonatomic) IBOutlet UIPickerView *sectionPicker;
 @property (strong,nonatomic) MSCHNetworkManager *nm;
+@property (strong,nonatomic) MSCHPersistenceManager *pm;
 
 @end
 
