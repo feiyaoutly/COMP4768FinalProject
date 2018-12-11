@@ -19,7 +19,57 @@
 @end
 
 @implementation ClassScheduleViewControler
-
+-(void)showAlert{
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
+    
+    NetworkStatus status = [reachability currentReachabilityStatus];
+    
+    if(status == NotReachable)
+    {
+        NSArray * courses = [self.pm getAllCourses];
+        if([courses count]==0){
+            UIAlertController * alert = [UIAlertController
+                                         alertControllerWithTitle:@"Fetch Data"
+                                         message:@"Please connect to WIFI to donwload database"
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* dismiss = [UIAlertAction
+                                      actionWithTitle:@"Dismiss"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action) {
+                                          
+                                      }];
+            [alert addAction:dismiss];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        }
+        
+        
+    }
+    else if (status == ReachableViaWiFi)
+    {
+        [self.nm fetchDataFromServer];
+    }
+    else if (status == ReachableViaWWAN)
+    {
+        NSArray * courses = [self.pm getAllCourses];
+        if([courses count]==0){
+            UIAlertController * alert = [UIAlertController
+                                         alertControllerWithTitle:@"Fetch Data"
+                                         message:@"Please connect to WIFI to donwload database"
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* dismiss = [UIAlertAction
+                                      actionWithTitle:@"Dismiss"
+                                      style:UIAlertActionStyleDefault
+                                      handler:^(UIAlertAction * action) {
+                                          
+                                      }];
+            [alert addAction:dismiss];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        }
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"%@%@",@"type of subview", NSStringFromClass([self.scrollView class]));
@@ -27,8 +77,13 @@
     NSLog(@"%@",@"class schedule view controller loaded");
     self.nm = [[MSCHNetworkManager alloc]init];
     self.pm = [[MSCHPersistenceManager alloc]init];
-    [self.nm fetchDataFromServer];
-    self.allCourses = [NSMutableArray arrayWithArray:[self.nm getAllCourse]];
+    
+    
+    
+    
+    
+    
+    self.allCourses = [NSMutableArray arrayWithArray:[self.pm getAllCourses]];
     self.selectedCourses = [NSMutableArray arrayWithArray:[self.pm getSelectedCourses]];
     [self.scrollView setContentSize:CGSizeMake(self.view.frame.size.width*1.6, self.view.frame.size.height*1.1)];
     
@@ -38,7 +93,7 @@
         NSString *thisSubject = [thisCourse valueForKey:@"subject"];
         NSString *thisNumber = [thisCourse valueForKey:@"number"];
         NSString *thisSection = [thisCourse valueForKey:@"section"];
-        NSDictionary *courseInfo = [self.nm getCourseOfSubject:thisSubject number:thisNumber section:thisSection];
+        NSDictionary *courseInfo = [self.pm getCourseInfoOfSubject:thisSubject Number:thisNumber Section:thisSection];
         NSArray *thisLectures = [courseInfo valueForKey:@"lectures"];
         
         for(int j=0;j<[thisLectures count];j++){
@@ -149,6 +204,7 @@
     
 }
 - (void)viewDidAppear:(BOOL)animated{
+    [self showAlert];
     NSLog(@"%@",@"class schedule appear");
     NSArray *coursesAfter = [self.pm getSelectedCourses];
     if([coursesAfter count]!=[self.selectedCourses count]){
@@ -166,7 +222,7 @@
             NSString *thisSubject = [thisCourse valueForKey:@"subject"];
             NSString *thisNumber = [thisCourse valueForKey:@"number"];
             NSString *thisSection = [thisCourse valueForKey:@"section"];
-            NSDictionary *courseInfo = [self.nm getCourseOfSubject:thisSubject number:thisNumber section:thisSection];
+            NSDictionary *courseInfo = [self.pm getCourseInfoOfSubject:thisSubject Number:thisNumber Section:thisSection];
             NSArray *thisLectures = [courseInfo valueForKey:@"lectures"];
             
             for(int j=0;j<[thisLectures count];j++){

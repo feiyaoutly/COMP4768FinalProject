@@ -10,6 +10,7 @@
 #import "AddCourseViewController.h"
 #import "DeleteCourseViewController.h"
 #import "ClassDetailViewController.h"
+#import "Reachability.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

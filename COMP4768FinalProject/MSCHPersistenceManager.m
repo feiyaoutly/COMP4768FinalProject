@@ -65,7 +65,16 @@
         NSLog(@"unable to save allcourse to plist");
     
 }
-
+-(NSArray *)getAllSubject{
+    NSMutableArray *subjects = [[NSMutableArray alloc]init];
+    NSArray *courses = [self getAllCourses];
+    for(int i=0;i<[courses count];i++){
+        if(![subjects containsObject:[[courses objectAtIndex:i] valueForKey:@"subject"]]){
+            [subjects addObject:[[courses objectAtIndex:i] valueForKey:@"subject"]];
+        }
+    }
+    return subjects;
+}
 -(NSArray *)getAllCourses{
     NSFileManager *fm = [NSFileManager new];
     NSError *err = nil;
@@ -90,7 +99,25 @@
     
     return courses;
 }
-
+- (NSArray *)getAllCourseNumberOfSubject:(NSString *)subject{
+    NSMutableArray *courseNumbers =[[NSMutableArray alloc]init];
+    NSArray *coursesOfSubject = [self getAllCoursesOfSubject:subject];
+    for(int i = 0;i<[coursesOfSubject count];i++){
+        if(![courseNumbers containsObject:[[coursesOfSubject objectAtIndex:i]valueForKey:@"number"]]){
+            [courseNumbers addObject:[[coursesOfSubject objectAtIndex:i]valueForKey:@"number"]];
+        }
+    }
+    return courseNumbers;
+}
+- (NSArray *)getAllSectionNumberOfSubject:(NSString *)subject Number:(NSString *)number{
+    NSArray *coursesOfSubjectAndNumber = [self getAllCoursesOfSubject:subject Number:number];
+    NSMutableArray *sections = [[NSMutableArray alloc]init];
+    for(int i=0;i<[coursesOfSubjectAndNumber count];i++){
+        [sections addObject:[[coursesOfSubjectAndNumber objectAtIndex:i] valueForKey:@"section"]];
+        NSLog(@"%@%@%@",subject,number,[[coursesOfSubjectAndNumber objectAtIndex:i] valueForKey:@"section"]);
+    }
+    return sections;
+}
 - (NSArray *)getAllCoursesOfSubject:(NSString *)subject Number:(NSString *)number{
     NSMutableArray *courses = [[NSMutableArray alloc]init];
     NSArray *coursesubject = [self getAllCoursesOfSubject:subject];

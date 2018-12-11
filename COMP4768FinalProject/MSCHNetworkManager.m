@@ -37,7 +37,9 @@
             NSMutableDictionary *course = [[NSMutableDictionary alloc]init];
             [course setValue:[self.subjects objectAtIndex:i] forKey:@"subject"];
             [course setValue:[courseDescriptionArr objectAtIndex:0] forKey:@"number"];
+            
             [course setValue:[courseDescriptionArr objectAtIndex:1] forKey:@"section"];
+            NSLog(@"%@%@",@"section:",[courseDescriptionArr objectAtIndex:1]);
             [course setValue:[courseDescriptionArr objectAtIndex:2] forKey:@"campus"];
             [course setValue:[courseDescriptionArr objectAtIndex:3] forKey:@"title"];
             [course setValue:[courseDescriptionArr objectAtIndex:4] forKey:@"instructor"];
@@ -61,12 +63,13 @@
             [course setValue:[courseDescriptionArr objectAtIndex:[[courseDescriptionArr objectAtIndex:5] intValue]*3+6] forKey:@"tutorialLocation"];
             
             [[self.courses valueForKey:[subjectsarr objectAtIndex:i]]addObject:course];
-            NSLog(@"%@",@" fetch data done");
+            
             
             
             
         }
     }
+                  NSLog(@"%@",@" fetch data done");
     MSCHPersistenceManager *pm = [[MSCHPersistenceManager alloc]init];
     NSMutableArray *allcourses = [[NSMutableArray alloc]init];
     for(int i=0;i<[self.subjects count];i++){

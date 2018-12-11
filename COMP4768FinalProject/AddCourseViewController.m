@@ -23,9 +23,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSLog(@"%@",@"add course view controller loaded");
-   self.nm = [[MSCHNetworkManager alloc]init];
-    [self.nm fetchDataFromServer];
-    NSLog(@"%@%@%@",[[self.nm getAllSubjects]objectAtIndex:0],[[self.nm getAllSubjects]objectAtIndex:1],[[self.nm getAllSubjects]objectAtIndex:2] );
+    self.nm = [[MSCHNetworkManager alloc]init];
+    self.pm = [[MSCHPersistenceManager alloc]init];
+   
+    
     self.subjectPicker.dataSource=self;
     self.subjectPicker.delegate=self;
     self.numberPicker.dataSource=self;
@@ -39,21 +40,21 @@
     return 1;
 }
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    NSArray *subjects = [self.nm getAllSubjects];
+    NSArray *subjects = [self.pm getAllSubject];
     if(pickerView.tag==9501){
         return [subjects count];
     }
     else if(pickerView.tag==9502){
         
-        NSArray *coursesNumbers = [self.nm getAllCourseNumberOfSubject:[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]]];
+        NSArray *coursesNumbers = [self.pm getAllCourseNumberOfSubject:[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]]];
         return [coursesNumbers count];
     }
     else if(pickerView.tag==9503){
         NSString *subject =[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]];
-        NSArray *coursesNumbers = [self.nm getAllCourseNumberOfSubject:subject];
+        NSArray *coursesNumbers = [self.pm getAllCourseNumberOfSubject:subject];
         NSString *number = [coursesNumbers objectAtIndex:[self.numberPicker selectedRowInComponent:0]];
-        NSArray *sections = [self.nm getAllSectionNumberOfSubject:subject number:number];
-        
+        NSArray *sections = [self.pm getAllSectionNumberOfSubject:subject Number:number];
+        NSLog(@"%@%@%@",subject,number,sections);
         return [sections count];
         
     }
@@ -62,20 +63,20 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSArray *subjects = [self.nm getAllSubjects];
+    NSArray *subjects = [self.pm getAllSubject];
     if(pickerView.tag==9501){
         return [subjects objectAtIndex:row];
     }
     else if(pickerView.tag==9502){
         
-        NSArray *coursesNumbers = [self.nm getAllCourseNumberOfSubject:[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]]];
+        NSArray *coursesNumbers = [self.pm getAllCourseNumberOfSubject:[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]]];
         return [coursesNumbers objectAtIndex:row];
     }
     else if(pickerView.tag==9503){
         NSString *subject =[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]];
-        NSArray *coursesNumbers = [self.nm getAllCourseNumberOfSubject:subject];
+        NSArray *coursesNumbers = [self.pm getAllCourseNumberOfSubject:subject];
         NSString *number = [coursesNumbers objectAtIndex:[self.numberPicker selectedRowInComponent:0]];
-        NSArray *sections = [self.nm getAllSectionNumberOfSubject:subject number:number];
+        NSArray *sections = [self.pm getAllSectionNumberOfSubject:subject Number:number];
         NSString *section = [sections objectAtIndex:row];
         
         return section;
@@ -96,20 +97,19 @@
     
 }
 - (IBAction)addButtonTapped:(id)sender {
-    MSCHPersistenceManager *pm=[[MSCHPersistenceManager alloc]init];
     
-    NSArray *subjects = [self.nm getAllSubjects];
+    NSArray *subjects = [self.pm getAllSubject];
     NSMutableDictionary *selectedCourse = [[NSMutableDictionary alloc]init];
     NSString *subject =[subjects objectAtIndex:[self.subjectPicker selectedRowInComponent:0]];
-    NSArray *coursesNumbers = [self.nm getAllCourseNumberOfSubject:subject];
+    NSArray *coursesNumbers = [self.pm getAllCourseNumberOfSubject:subject];
     NSString *number = [coursesNumbers objectAtIndex:[self.numberPicker selectedRowInComponent:0]];
-    NSArray *sections = [self.nm getAllSectionNumberOfSubject:subject number:number];
+    NSArray *sections = [self.pm getAllSectionNumberOfSubject:subject Number:number];
     NSString *section = [sections objectAtIndex:[self.sectionPicker selectedRowInComponent:0]];
     [selectedCourse setValue:subject forKey:@"subject"];
     [selectedCourse setValue:number forKey:@"number"];
     [selectedCourse setValue:section forKey:@"section"];
     
-    [pm addOneSelectedCourse:selectedCourse];
+    [self.pm addOneSelectedCourse:selectedCourse];
   [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)cancelButtonTapped:(id)sender {

@@ -16,7 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void) saveAllCourses:(NSArray *)allCourses;
 -(NSArray *) getAllCourses;
+-(NSArray *) getAllSubject;
 -(NSArray *) getAllCoursesOfSubject:(NSString *)subject;
+-(NSArray *) getAllCourseNumberOfSubject:(NSString *) subject;
+-(NSArray *) getAllSectionNumberOfSubject:(NSString *) subject Number:(NSString *)number;
 -(NSArray *) getAllCoursesOfSubject:(NSString *)subject Number:(NSString *)number;
 -(NSDictionary *) getCourseInfoOfSubject:(NSString *)subject Number:(NSString *)number Section:(NSString *)section;
 -(void) saveSelectedCourses:(NSArray *)selectedCouses;

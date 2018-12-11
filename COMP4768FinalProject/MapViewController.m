@@ -54,61 +54,61 @@
         NSString *buildingCode = [[lectureLoc componentsSeparatedByString:@" "] objectAtIndex:0];
         Myanotation* ann = [[Myanotation alloc] init];
         if([buildingCode isEqualToString:@"A"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5715288,-52.732021);
+            ann.coordinate = CLLocationCoordinate2DMake(47.571314, -52.732216);
         }
         else if([buildingCode isEqualToString:@"BN"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.575533,-52.7350292);
+            ann.coordinate = CLLocationCoordinate2DMake(47.575399, -52.734161);
         }
         else if([buildingCode isEqualToString:@"BT"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.572551,-52.7339567);
+            ann.coordinate = CLLocationCoordinate2DMake(47.572549, -52.733179);
         }
         else if([buildingCode isEqualToString:@"C"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.573094,-52.7342193);
+            ann.coordinate = CLLocationCoordinate2DMake(47.573131, -52.733167);
         }
         else if([buildingCode isEqualToString:@"CL"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5760065,-52.7327095);
+            ann.coordinate = CLLocationCoordinate2DMake(47.576094, -52.731512);
         }
         else if([buildingCode isEqualToString:@"CS"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.572122,-52.7348627);
+            ann.coordinate = CLLocationCoordinate2DMake(47.572123, -52.732691);
         }
         else if([buildingCode isEqualToString:@"ED"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.57102,-52.7381657);
+            ann.coordinate = CLLocationCoordinate2DMake(47.571088, -52.735984);
         }
         else if([buildingCode isEqualToString:@"EN"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.575055,-52.736706);
+            ann.coordinate = CLLocationCoordinate2DMake(47.575023, -52.735692);
         }
         else if([buildingCode isEqualToString:@"ER"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5741954,-52.734039);
+            ann.coordinate = CLLocationCoordinate2DMake(47.574093, -52.734383);
         }
         else if([buildingCode isEqualToString:@"FM"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5741954,-52.734039);
+            ann.coordinate = CLLocationCoordinate2DMake(47.572720, -52.730632);
         }
         else if([buildingCode isEqualToString:@"H"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5741954,-52.734039);
+            ann.coordinate = CLLocationCoordinate2DMake(47.572242, -52.741800);
         }
         else if([buildingCode isEqualToString:@"HH"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5741954,-52.734039);
+            ann.coordinate = CLLocationCoordinate2DMake(47.571508, -52.731029);
         }
         else if([buildingCode isEqualToString:@"IIC"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5741954,-52.734039);
+            ann.coordinate = CLLocationCoordinate2DMake(47.571630, -52.733235);
         }
         else if([buildingCode isEqualToString:@"J"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5741954,-52.734039);
+            ann.coordinate = CLLocationCoordinate2DMake(47.575412, -52.732793);
         }
         else if([buildingCode isEqualToString:@"MU"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5741954,-52.734039);
+            ann.coordinate = CLLocationCoordinate2DMake(47.572148, -52.730468);
         }
         else if([buildingCode isEqualToString:@"PE"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5741954,-52.734039);
+            ann.coordinate = CLLocationCoordinate2DMake(47.570722, -52.734176);
         }
         else if([buildingCode isEqualToString:@"QC"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5741954,-52.734039);
+            ann.coordinate = CLLocationCoordinate2DMake(47.577414, -52.730592);
         }
         else if([buildingCode isEqualToString:@"SN"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5741954,-52.734039);
+            ann.coordinate = CLLocationCoordinate2DMake(47.572449, -52.731939);
         }
         else if([buildingCode isEqualToString:@"UC"]){
-            ann.coordinate = CLLocationCoordinate2DMake(47.5741954,-52.734039);
+            ann.coordinate = CLLocationCoordinate2DMake(47.573230, -52.735187);
         }
         
         ann.title = [NSString stringWithFormat:@"%@ %@",subject,number ];

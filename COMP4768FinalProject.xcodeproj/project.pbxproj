@@ -31,6 +31,7 @@
 		B0CB76F32191D871007B5D49 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0CB76F22191D871007B5D49 /* image.xcassets */; };
 		B0CB76F62191D871007B5D49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0CB76F42191D871007B5D49 /* LaunchScreen.storyboard */; };
 		B0CB76F92191D871007B5D49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CB76F82191D871007B5D49 /* main.m */; };
+		B0EFC8C421BF559600C6C3BC /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EFC8C321BF559600C6C3BC /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,8 @@
 		B0CB76F52191D871007B5D49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0CB76F72191D871007B5D49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0CB76F82191D871007B5D49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B0EFC8C221BF559600C6C3BC /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		B0EFC8C321BF559600C6C3BC /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 		B0CB76E82191D870007B5D49 /* COMP4768FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				B0EFC8C221BF559600C6C3BC /* Reachability.h */,
+				B0EFC8C321BF559600C6C3BC /* Reachability.m */,
 				717587A221AB8B5C00550B54 /* ViewController.h */,
 				717587A321AB8B5C00550B54 /* ViewController.m */,
 				B0B4AF1621AE4A0100025E0F /* ClassScheduleViewControler.h */,
@@ -251,6 +256,7 @@
 				717587A421AB8B5C00550B54 /* ViewController.m in Sources */,
 				B0B4AF0921ACC3B700025E0F /* MSCHPersistenceManager.m in Sources */,
 				718F0BED21ADCCAC0032CD26 /* locationmanager.m in Sources */,
+				B0EFC8C421BF559600C6C3BC /* Reachability.m in Sources */,
 				B06AA9EA21AB7EB2005626BD /* MSCHNetworkManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

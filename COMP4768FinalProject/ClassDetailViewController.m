@@ -29,8 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.nm =[[MSCHNetworkManager alloc]init];
-    [self.nm fetchDataFromServer];
-    self.courseInfo = [self.nm getCourseOfSubject:self.subject number:self.number section:self.section];
+    self.pm = [[MSCHPersistenceManager alloc]init];
+    self.courseInfo = [self.pm getCourseInfoOfSubject:self.subject Number:self.number Section:self.section];
     NSLog(@"%@%@",@"insturctor name:",[self.courseInfo valueForKey:@"instructor"]);
     self.courseTitle.text = [NSString stringWithFormat:@"%@%@ %@",@"Course:",[self.courseInfo valueForKey:@"subject"],[self.courseInfo valueForKey:@"number"]];
     self.courseSection.text = [NSString stringWithFormat:@"%@%@",@"Section:",[self.courseInfo valueForKey:@"section"]];
@@ -42,7 +42,7 @@
         self.courseLectures.text = [self.courseLectures.text stringByAppendingString:[NSString stringWithFormat:@"%@ %@ %@%@",[lecture valueForKey:@"lectureDay"],[lecture valueForKey:@"lectureTime"],[lecture valueForKey:@"lectureLocation"],@"\r\n"]];
     }
     self.courseEvents.text=@"Events for this course:\r\n";
-    self.pm = [[MSCHPersistenceManager alloc]init];
+    
     
     NSArray *events = [self.pm getAddedEvent];
     int eventForShow = 0;
